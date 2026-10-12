@@ -75,8 +75,11 @@ var WA = '5585986187522';
 var R = { utm: Object.fromEntries(new URLSearchParams(location.search)) };
 var historico = [];
 
-// Opções de verba com o MESMO texto do formulário atual: a régua de lead qualificado lê essas strings.
-var VERBA_QUALIFICA = ['Tenho os R$ 1.500', 'Entre R$ 2.500 e R$ 4.000', 'Acima de R$ 4.000'];
+// Texto mostrado ao lead. O texto enviado ao worker passa por VERBA_WORKER enquanto a ponte existir: a régua de lead qualificado lê essas strings.
+var VERBA_QUALIFICA = ['Tenho os R$ 1.700', 'Entre R$ 2.500 e R$ 4.000', 'Acima de R$ 4.000'];
+// Ponte até o worker aruna-atendimento aceitar o texto novo: ele valida a opção pelo texto exato
+// e só conhece "Tenho os R$ 1.500". Apagar quando o worker tiver "Tenho os R$ 1.700" nas opções.
+var VERBA_WORKER = {'Tenho os R$ 1.700':'Tenho os R$ 1.500'};
 
 var TELAS = {
   inicio: {tipo:'info', kicker:'Aplicação · 2 minutos',
@@ -116,15 +119,15 @@ var TELAS = {
   prova: {tipo:'info', kicker:'Enquanto isso',
     titulo:function(){ return R.nome+', olha a conta do Thiago, tatuador de Fortaleza.'; },
     sub:'Ele dependia de indicação. No primeiro mês com a gente:',
-    extra:'<div class="barras" style="margin-bottom:18px"><div class="linha"><span>Uma tattoo agendada, com sinal pago</span><i style="--w:100%"></i><b>R$ 1.300</b></div><div class="linha custo"><span>Mês inteiro: anúncio + gestão</span><i style="--w:98%"></i><b>R$ 1.270</b></div></div><div class="veredito" style="margin-bottom:18px">Uma tattoo pagou o mês inteiro.<br><span class="grad-txt">Da segunda em diante, é lucro.</span></div><div class="nums3" style="grid-template-columns:1fr 1fr"><div><b>57 → 188</b><small>visitas por dia no perfil depois do anúncio</small></div><div><b>+231%</b><small>de gente conhecendo o trabalho dele na região</small></div></div><p class="muted" style="font-size:14px;margin-bottom:24px">Resultado de um cliente real, não promessa. Cada cidade e estilo responde diferente.</p>',
+    extra:'<div class="barras" style="margin-bottom:18px"><div class="linha"><span>Uma tattoo agendada, com sinal pago</span><i style="--w:100%"></i><b>R$ 1.300</b></div><div class="linha custo"><span>Mês inteiro, no preço da época: anúncio + gestão</span><i style="--w:98%"></i><b>R$ 1.270</b></div></div><div class="veredito" style="margin-bottom:18px">Uma tattoo pagou o mês inteiro.<br><span class="grad-txt">Da segunda em diante, é lucro.</span></div><div class="nums3" style="grid-template-columns:1fr 1fr"><div><b>57 → 188</b><small>visitas por dia no perfil depois do anúncio</small></div><div><b>+231%</b><small>de gente conhecendo o trabalho dele na região</small></div></div><p class="muted" style="font-size:14px;margin-bottom:24px">Resultado de um cliente real, não promessa. Cada cidade e estilo responde diferente.</p>',
     botao:'Continuar', prox:'investimentos'},
 
   investimentos: {tipo:'info', kicker:'Transparência',
     titulo:'Existem dois investimentos, e você precisa saber dos dois antes.',
-    extra:'<div class="info"><div class="linha"><span>Nosso trabalho: campanha, criativo, roteiro de conversa e relatório semanal</span><b>R$ 650</b></div><div class="linha"><span>Anúncio, pago direto à Meta no seu cartão</span><b>R$ 850</b></div><div class="linha tot"><span>Total por mês, sem fidelidade</span><b class="grad-txt">R$ 1.500</b></div></div><p class="muted" style="margin-bottom:10px">Com uma sessão média de R$ 1.000, duas tattoos no mês já pagam tudo.</p><p class="muted" style="margin-bottom:24px">E não precisa sair de uma vez: a gestão pode ser paga a cada 15 dias (R$ 325) e o anúncio vai no seu cartão de crédito.</p>',
+    extra:'<div class="info"><div class="linha"><span>Nosso trabalho: campanha, criativo, roteiro de conversa e relatório semanal</span><b>R$ 800</b></div><div class="linha"><span>Anúncio (R$ 30 por dia), pago direto à Meta no seu cartão</span><b>R$ 900</b></div><div class="linha tot"><span>Total por mês, sem fidelidade</span><b class="grad-txt">R$ 1.700</b></div></div><p class="muted" style="margin-bottom:10px">Com uma sessão média de R$ 1.000, duas tattoos no mês já pagam tudo.</p><p class="muted" style="margin-bottom:24px">E não precisa sair de uma vez: a gestão pode ser paga a cada 15 dias (R$ 400) e o anúncio vai no seu cartão de crédito.</p>',
     botao:'Ok, entendido', prox:'verba'},
 
-  verba: {tipo:'uma', chave:'investimento', kicker:'9 de 11', titulo:'Hoje, você consegue investir os R$ 1.500 por mês?', sub:'Contando com a gestão quinzenal e o anúncio no cartão.',
+  verba: {tipo:'uma', chave:'investimento', kicker:'9 de 11', titulo:'Hoje, você consegue investir os R$ 1.700 por mês?', sub:'Contando com a gestão quinzenal e o anúncio no cartão.',
     opcoes:VERBA_QUALIFICA.concat(['Ainda não tenho esse valor']),
     prox:function(v){ return VERBA_QUALIFICA.indexOf(v)>=0 ? 'decisor' : 'seguidores'; }},
 
@@ -330,6 +333,8 @@ function respostas(){
   ['nome','whatsapp','instagram','ig_verificado','equipe','faturamento','ticket','trafego','investimento','decisor','urgencia','seguidores','frequencia']
     .forEach(function(k){ if(R[k]) r[k] = R[k]; });
   if(R.dor && R.dor.length) r.dor = R.dor.join(', ');
+  // Só o payload do worker usa o texto antigo (ver VERBA_WORKER); R.investimento fica com o texto novo.
+  if(VERBA_WORKER.hasOwnProperty(r.investimento)) r.investimento = VERBA_WORKER[r.investimento];
   return r;
 }
 function post(slug){
