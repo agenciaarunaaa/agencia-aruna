@@ -352,13 +352,14 @@ function mostrarFim(id, ref){
     var quente = true;
     // As respostas ja chegam no grupo Holding pela automacao: a mensagem do lead fica curta.
     // O [REF:] precisa ficar, e o que liga a conversa ao anuncio.
-    var msg = 'Oi, Lucas! Respondi as perguntas lá no site e quero o diagnóstico do meu perfil.'+(ref ? '\n\n[REF:'+ref+']' : '');
+    // 17/10/2026: fim fala em começar o trabalho, não em diagnóstico (Lucas: "a pessoa acha que é sem compromisso").
+    var msg = 'Oi, Lucas! Respondi as perguntas lá no site e quero começar o projeto com vocês.'+(ref ? '\n\n[REF:'+ref+']' : '');
     h = '<div class="tela"><span class="kicker">Respostas recebidas</span>'+
       '<h1>'+R.nome+', você passou na primeira triagem.</h1>'+
       '<p class="sub">'+(quente
-        ? 'O próximo passo é continuar no WhatsApp do Lucas. Por lá, vocês combinam o diagnóstico por escrito: ele analisa seus números, seu feed e sua cidade e mostra o que faria primeiro.'
+        ? 'O próximo passo é falar com o Lucas no WhatsApp. Ele analisa seus números, seu feed e sua cidade, mostra o que faria primeiro e vocês combinam o início do trabalho.'
         : 'Você pode continuar a conversa no WhatsApp do Lucas e combinar por lá o diagnóstico do seu perfil, feito por escrito.')+'</p>'+
-      '<a class="btn wa" href="'+linkWA(msg)+'" target="_blank" rel="noopener">'+(quente?'Receber meu diagnóstico no WhatsApp':'Continuar no WhatsApp')+'</a>'+
+      '<a class="btn wa" href="'+linkWA(msg)+'" target="_blank" rel="noopener">'+(quente?'Quero começar o projeto hoje':'Continuar no WhatsApp')+'</a>'+
       '<p class="cta-note">A mensagem já vai escrita. É só enviar.</p></div>';
   } else {
     var d = diagnostico();
