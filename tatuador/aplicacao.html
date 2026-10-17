@@ -95,48 +95,51 @@ var TELAS = {
     sub:'Preencher não garante vaga. Atendemos poucos tatuadores por vez, e o formulário existe para ver se faz sentido para os dois lados. Quem ainda não estiver no momento recebe, na hora, orientações para o perfil com base nas respostas.',
     botao:'Começar', prox:'dor'},
 
-  dor: {tipo:'multi', chave:'dor', kicker:'1 de 13',
+  dor: {tipo:'multi', chave:'dor', kicker:'1 de 12',
     titulo:'O que mais trava sua agenda hoje?', sub:'Pode marcar mais de uma.',
     opcoes:['Muita gente pergunta o preço e some','Dependo de indicação','Posto e não vira cliente','Agenda com buraco na semana','Cliente só quer desconto','Não sei o que postar'],
     prox:'nome'},
 
-  nome: {tipo:'texto', chave:'nome', kicker:'2 de 13', titulo:'Qual é o seu nome?', ph:'Seu primeiro nome', prox:'whatsapp',
+  nome: {tipo:'texto', chave:'nome', kicker:'2 de 12', titulo:'Qual é o seu nome?', ph:'Seu primeiro nome', prox:'whatsapp',
     valida:function(v){ return v.trim().length>1 || 'Escreve seu nome para a gente te chamar certo.'; }},
 
-  whatsapp: {tipo:'texto', chave:'whatsapp', kicker:'3 de 13', titulo:function(){ return 'Prazer, '+R.nome+'. Qual o seu WhatsApp?'; },
+  whatsapp: {tipo:'texto', chave:'whatsapp', kicker:'3 de 12', titulo:function(){ return 'Prazer, '+R.nome+'. Qual o seu WhatsApp?'; },
     sub:'É por ele que vai o próximo passo.', ph:'(85) 99999-9999', inputmode:'tel', prox:function(){ return R._reenviar || 'instagram'; },
     mascara:function(v){ var d=v.replace(/\D/g,'').slice(0,11); if(d.length>6) return '('+d.slice(0,2)+') '+d.slice(2,7)+'-'+d.slice(7); if(d.length>2) return '('+d.slice(0,2)+') '+d.slice(2); return d; },
     valida:function(v){ return v.replace(/\D/g,'').length>=10 || 'Confere o número com DDD.'; }},
 
-  instagram: {tipo:'texto', chave:'instagram', kicker:'4 de 13', titulo:'E o @ do Instagram? Seu ou do estúdio.', sub:'É nele que a gente olha antes de responder.', ph:'@seuperfil', prox:'prova',
+  instagram: {tipo:'texto', chave:'instagram', kicker:'4 de 12', titulo:'E o @ do Instagram? Seu ou do estúdio.', sub:'É nele que a gente olha antes de responder.', ph:'@seuperfil', prox:'prova',
     valida:function(v){ return !!normIG(v) || 'Isso não parece um @ do Instagram. Só letras, números, ponto e _ (ex: @seuestudio).'; },
     conferir:conferirInstagram},
 
   prova: {tipo:'info', kicker:'Enquanto isso',
     titulo:function(){ return R.nome+', olha o que só o anúncio já trouxe para quem está com a gente.'; },
     sub:'Tattoo fechada que começou num anúncio, antes do atendente de IA entrar no método:',
-    extra:'<div class="nums3" style="grid-template-columns:1fr 1fr"><div><small class="quem">Gabriel · @gtottoo · Águas Claras, DF</small><b>R$ 4.300</b><small>em tattoos fechadas que vieram dos anúncios, desde setembro</small><small class="extra">A primeira: R$ 800, com R$ 191 de anúncio até ela.</small></div><div><small class="quem">Will · Barra do Garças, MT</small><b>2 tattoos</b><small>fechadas com sinal pago na primeira semana</small></div></div><div class="veredito" style="margin-bottom:18px">Gente nova chegando pelo anúncio, sem depender de indicação.</div><p class="muted" style="font-size:14px;margin-bottom:24px">Fechamentos informados pelos próprios clientes. Não é promessa: cada cidade e estilo responde diferente.</p>',
+    extra:'<div class="nums3" style="grid-template-columns:1fr 1fr">'+
+      '<div><small class="quem">Gabriel · @gtottoo · Águas Claras, DF</small><b>R$ 4.300</b><small>em tattoos fechadas que vieram dos anúncios, desde setembro</small><small class="extra">A primeira foi de R$ 800, com R$ 191 de anúncio até ela. E 9 em cada 10 conversas vieram de quem já tinha visto o trabalho dele.</small><p class="veredito" style="font-size:16px;padding:10px 12px;margin:12px 0 0">Cada uma dessas tattoos começou num anúncio.</p></div>'+
+      '<div><small class="quem">Will · Barra do Garças, MT</small><b>R$&nbsp;7&nbsp;mil+</b><small>em 2 tattoos fechadas na primeira semana de anúncio</small><small class="extra">A primeira passou de R$&nbsp;5&nbsp;mil, com mais de R$&nbsp;1&nbsp;mil de sinal, e saiu com menos de R$&nbsp;50 de anúncio até ela. Na semana foram cerca de 40 conversas no WhatsApp.</small><p class="veredito" style="font-size:16px;padding:10px 12px;margin:12px 0 0">Menos de R$&nbsp;150 de anúncio virou mais de R$&nbsp;7&nbsp;mil em tattoo.</p></div>'+
+      '</div><p class="muted" style="font-size:14px;margin-bottom:24px">Fechamentos informados pelos próprios clientes. Investimento em anúncio conferido na conta de anúncio de cada um. Não é média nem promessa: cada cidade, estilo e perfil responde diferente, e é por isso que a gente mede toda semana.</p>',
     botao:'Continuar', prox:'equipe'},
 
-  equipe: {tipo:'uma', chave:'equipe', kicker:'5 de 13', titulo:function(){ return R.nome+', você trabalha como?'; },
+  equipe: {tipo:'uma', chave:'equipe', kicker:'5 de 12', titulo:function(){ return R.nome+', você trabalha como?'; },
     opcoes:['Sozinho(a)','Estúdio com 2 ou 3 tatuadores','Estúdio com 4 ou mais'], prox:'faturamento'},
 
-  faturamento: {tipo:'uma', chave:'faturamento', kicker:'6 de 13', titulo:'Em média, quanto você fatura por mês com tattoo?', sub:'Se você tem equipe, conte o estúdio inteiro. Ninguém além de nós vê.',
+  faturamento: {tipo:'uma', chave:'faturamento', kicker:'6 de 12', titulo:'Em média, quanto você fatura por mês com tattoo?', sub:'Se você tem equipe, conte o estúdio inteiro. Ninguém além de nós vê.',
     opcoes:['Ainda não tenho renda fixa com tattoo','Até R$ 3 mil','Entre R$ 3 mil e R$ 6 mil','Entre R$ 6 mil e R$ 10 mil','Entre R$ 10 mil e R$ 25 mil','Acima de R$ 25 mil'], prox:'ticket'},
 
-  ticket: {tipo:'uma', chave:'ticket', kicker:'7 de 13', titulo:'Quanto custa uma sessão, em média?',
+  ticket: {tipo:'uma', chave:'ticket', kicker:'7 de 12', titulo:'Quanto custa uma sessão, em média?',
     opcoes:['Até R$ 500','Entre R$ 500 e R$ 1.000','Entre R$ 1.000 e R$ 2.000','Acima de R$ 2.000'], prox:'trafego'},
 
-  trafego: {tipo:'uma', chave:'trafego', kicker:'8 de 13', titulo:'Já anunciou antes?',
+  trafego: {tipo:'uma', chave:'trafego', kicker:'8 de 12', titulo:'Já anunciou antes?',
     opcoes:['Nunca','Só impulsionei pelo Instagram','Já tive gestor ou agência','Anuncio hoje'], prox:'atende_tempo'},
 
-  atende_tempo: {tipo:'uma', chave:'atende_tempo', kicker:'9 de 13', titulo:'No seu horário de atendimento, quanto tempo você costuma levar para responder uma mensagem nova?',
+  atende_tempo: {tipo:'uma', chave:'atende_tempo', kicker:'9 de 12', titulo:'No seu horário de atendimento, quanto tempo você costuma levar para responder uma mensagem nova?',
     sub:'Quanto mais a resposta demora, mais o cliente esfria. Pode ser sincero: fica só com a gente.',
     opcoes:['Até 5 minutos','Mais de 5 até 30 minutos','Mais de 30 até 120 minutos','Mais de 120 minutos'],
     depois:'<div class="termo"><i></i><div><span>cliente quente</span><span>cliente frio</span></div></div>',
     prox:'cobra_sinal'},
 
-  cobra_sinal: {tipo:'uma', chave:'cobra_sinal', kicker:'10 de 13', titulo:'Você cobra sinal para agendar?',
+  cobra_sinal: {tipo:'uma', chave:'cobra_sinal', kicker:'10 de 12', titulo:'Você cobra sinal para agendar?',
     opcoes:['Sim, sempre','Às vezes','Não cobro'], prox:'investimentos'},
 
   investimentos: {tipo:'info', kicker:'Transparência',
@@ -144,16 +147,14 @@ var TELAS = {
     extra:'<div class="info"><div class="linha"><span>Nosso trabalho: a demanda (campanha e criativo), o Sórisca (nosso atendente de IA) no seu WhatsApp e o placar semanal</span><b>R$ 900</b></div><div class="linha"><span>Anúncio no Meta Ads, pago direto no seu cartão. A Meta soma cerca de R$ 125 de impostos no mês</span><b>R$ 30 por dia<small>cerca de R$ 900 no mês</small></b></div><div class="linha tot"><span>Total por mês, sem fidelidade, mais os impostos da Meta</span><b><small>cerca de</small><em class="grad-txt">R$ 1.800</em></b></div></div><p class="muted" style="margin-bottom:10px">O Sórisca sozinho custa R$ 197/mês. No método, ele já vem incluso.</p><p class="muted" style="margin-bottom:10px">Exemplo de faturamento bruto: três sessões de R$ 1.000 somam R$ 3.000.</p><p class="muted" style="margin-bottom:24px">E não precisa sair de uma vez: a gestão pode ser paga a cada 15 dias (R$ 450) e o anúncio vai para a fatura do seu cartão de crédito.</p>',
     botao:'Ok, entendido', prox:'verba'},
 
-  verba: {tipo:'uma', chave:'investimento', kicker:'11 de 13', titulo:'Hoje, você consegue investir os R$ 1.800 por mês?', sub:'Contando com a gestão quinzenal e o anúncio no cartão. Os impostos da Meta vêm à parte, na fatura.',
+  verba: {tipo:'uma', chave:'investimento', kicker:'11 de 12', titulo:'Hoje, você consegue investir os R$ 1.800 por mês?', sub:'Contando com a gestão quinzenal e o anúncio no cartão. Os impostos da Meta vêm à parte, na fatura.',
     opcoes:VERBA_QUALIFICA.concat(['Ainda não tenho esse valor']),
     prox:function(v){ return qualifica(v) ? 'decisor' : 'frequencia'; }},
 
   // ramo qualificado
-  decisor: {tipo:'uma', chave:'decisor', kicker:'12 de 13', titulo:'A decisão de investir é só sua?',
-    opcoes:['Sim, decido sozinho(a)','Divido com sócio(a) ou parceiro(a)'], prox:'urgencia'},
-
-  urgencia: {tipo:'uma', chave:'urgencia', kicker:'13 de 13', titulo:function(){ return 'Última, '+R.nome+'. Quando você quer começar?'; },
-    opcoes:['Esta semana','Nos próximos 30 dias','Daqui a uns 3 meses','Só estou pesquisando'], prox:'fim_qualificado'},
+  decisor: {tipo:'uma', chave:'decisor', kicker:'12 de 12', titulo:'A decisão de investir é só sua?',
+    opcoes:['Sim, decido sozinho(a)','Divido com sócio(a) ou parceiro(a)'], prox:'fim_qualificado'},
+  // "Quando você quer começar?" saiu em 17/10/2026 (Lucas: "acho sem sentido, pode remover ela").
 
   // ramo de orientações: uma pergunta a mais; o tamanho do perfil vem da conferência do Instagram (passo 4)
   frequencia: {tipo:'uma', chave:'frequencia', kicker:'Última pergunta', titulo:'Sem problema. Com que frequência você posta no feed?', sub:'É para as orientações saírem do tamanho certo para você.',
@@ -185,7 +186,7 @@ function ir(id, voltando){
   var t = TELAS[id]; if(id.indexOf('fim_')===0) return fim(id);
   if(t.tipo!=='info') idSubmissao();
   document.getElementById('voltar').style.visibility = historico.length>1 ? 'visible' : 'hidden';
-  // Barra pelo número do kicker ("N de 13"); tela informativa mantém a da pergunta anterior.
+  // Barra pelo número do kicker ("N de 12"); tela informativa mantém a da pergunta anterior.
   var n = String(t.kicker).match(/^(\d+) de (\d+)/), barra = document.getElementById('progresso');
   if(n) barra.style.width = ((n[1]-1)/n[2]*100)+'%'; else if(id==='inicio') barra.style.width = '0%';
 
@@ -228,8 +229,10 @@ document.addEventListener('keydown', function(e){
 });
 
 // Conferência do @ (26/09/2026). O worker consulta a Meta, que só enxerga perfil comercial ou
-// de criador: perfil pessoal e perfil inexistente voltam iguais. Por isso "não achado" pede
-// confirmação ao lead em vez de barrar, e o grupo Holding recebe como ficou em ig_verificado.
+// de criador: perfil pessoal e perfil inexistente voltam iguais. Desde 17/10/2026 (Lucas: "não
+// permita que o cliente passe sem mencionar o perfil dele corretamente") "não achado" barra: pede
+// para corrigir o @ ou trocar para conta profissional, que é a que pode anunciar. Só a falha
+// técnica da consulta deixa seguir, e o grupo Holding recebe como ficou em ig_verificado.
 var IG_API = 'https://aruna-atendimento.yanna-barbara.workers.dev/api/ig-perfil';
 function normIG(v){
   var s = String(v||'').trim().toLowerCase(), m = s.match(/instagram\.com\/([^\/?#\s]+)/);
@@ -269,10 +272,11 @@ function conferirInstagram(c, ok, proximo){
         b.querySelector('#igsim').onclick = function(){ seguir('sim'+(seg?', '+seg:''), d.seguidores); };
         b.querySelector('#ignao').onclick = corrigir;
       } else {
-        var b2 = caixa('<p>Não achamos <b>@'+esc(u)+'</b> como perfil profissional no Instagram. Confere se está escrito certo.</p>'+
-          '<div class="acoes"><button class="btn" id="ignao">Corrigir</button><button class="btn sec" id="igsim">Está certo, seguir</button></div>');
+        var b2 = caixa('<p>Não achamos <b>@'+esc(u)+'</b> no Instagram como conta profissional. Confere se está escrito certo.</p>'+
+          '<p>Se estiver certo, seu perfil ainda é pessoal. Para anunciar no Instagram ele precisa ser profissional, e a troca é grátis: no app, abra o menu do seu perfil, toque em <b>Tipo de conta e ferramentas</b> e depois em <b>Mudar para conta profissional</b>.</p>'+
+          '<div class="acoes"><button class="btn" id="ignao">Corrigir o @</button><button class="btn sec" id="igdenovo">Já mudei, conferir de novo</button></div>');
         b2.querySelector('#ignao').onclick = corrigir;
-        b2.querySelector('#igsim').onclick = function(){ seguir('não achado, lead confirmou que está certo'); };
+        b2.querySelector('#igdenovo').onclick = function(){ fechar(); conferirInstagram(c, ok, proximo); };
       }
     })
     .catch(function(){ clearTimeout(timer); ok.disabled=false; ok.textContent='OK'; seguir('não conferido (consulta falhou)'); });
@@ -344,7 +348,8 @@ function falhaEnvio(id, d){
 function mostrarFim(id, ref){
   var h;
   if(id==='fim_qualificado'){
-    var quente = R.urgencia==='Esta semana' || R.urgencia==='Nos próximos 30 dias';
+    // Sem a pergunta "quando quer começar" (17/10/2026), todo qualificado recebe a versão de quem quer começar já.
+    var quente = true;
     // As respostas ja chegam no grupo Holding pela automacao: a mensagem do lead fica curta.
     // O [REF:] precisa ficar, e o que liga a conversa ao anuncio.
     var msg = 'Oi, Lucas! Respondi as perguntas lá no site e quero o diagnóstico do meu perfil.'+(ref ? '\n\n[REF:'+ref+']' : '');
@@ -384,7 +389,7 @@ function tracking(){ return {url:location.href, fbclid:qs.get('fbclid'), fbp:coo
   utm_source:qs.get('utm_source'), utm_medium:qs.get('utm_medium'), utm_campaign:qs.get('utm_campaign'), utm_content:qs.get('utm_content'), utm_term:qs.get('utm_term')}; }
 function respostas(){
   var r = {};
-  ['nome','whatsapp','instagram','ig_verificado','equipe','faturamento','ticket','trafego','atende_tempo','cobra_sinal','investimento','decisor','urgencia','frequencia']
+  ['nome','whatsapp','instagram','ig_verificado','equipe','faturamento','ticket','trafego','atende_tempo','cobra_sinal','investimento','decisor','frequencia']
     .forEach(function(k){ if(R[k]) r[k] = R[k]; });
   if(R.dor && R.dor.length) r.dor = R.dor.join(', ');
   return r;
