@@ -136,7 +136,7 @@ section.block{padding:96px 0}
 .preco .card p{color:var(--muted);font-size:15px}
 .preco .total{border-color:rgba(255,107,53,.45);background:linear-gradient(160deg,#2a1a1f,#1C1C2F)}
 .preco .card p.avulso{margin-top:12px;padding-top:12px;border-top:1px solid var(--faint);font-size:13.5px}
-.conta{margin-top:22px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.conta{margin-top:22px;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
 .conta div{border-left:2px solid var(--orange);padding:4px 0 4px 16px}
 .conta b{font-family:var(--display);font-size:28px;display:block}
 .conta span{color:var(--muted);font-size:14.5px}
