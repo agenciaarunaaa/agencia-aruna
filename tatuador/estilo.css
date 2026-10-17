@@ -70,6 +70,9 @@ section.block{padding:96px 0}
 .g2{grid-template-columns:repeat(2,1fr)}
 .g3{grid-template-columns:repeat(3,1fr)}
 .g4{grid-template-columns:repeat(4,1fr)}
+.g5{grid-template-columns:repeat(5,1fr)}
+.g5 .passo h3{font-size:20px}
+.g5 .passo p{font-size:15px}
 
 .dor h3{font-size:22px;margin-bottom:8px}
 .dor .q{font-family:var(--display);font-weight:600;color:var(--orange);font-size:15px;margin-bottom:12px;display:block}
@@ -132,6 +135,7 @@ section.block{padding:96px 0}
 .preco .card b{display:block;font-family:var(--display);font-size:42px;margin:8px 0 6px}
 .preco .card p{color:var(--muted);font-size:15px}
 .preco .total{border-color:rgba(255,107,53,.45);background:linear-gradient(160deg,#2a1a1f,#1C1C2F)}
+.preco .card p.avulso{margin-top:12px;padding-top:12px;border-top:1px solid var(--faint);font-size:13.5px}
 .conta{margin-top:22px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .conta div{border-left:2px solid var(--orange);padding:4px 0 4px 16px}
 .conta b{font-family:var(--display);font-size:28px;display:block}
@@ -201,7 +205,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   .marquee{padding:11px 0}
   .marquee span{font-size:15px;gap:32px}
   .marquee .track{gap:32px}
-  .g2,.g3,.g4,.conta{grid-template-columns:1fr}
+  .g2,.g3,.g4,.g5,.conta{grid-template-columns:1fr}
   .preco{grid-template-columns:1fr}
   .preco .op{font-size:26px}
   section.block{padding:68px 0}
@@ -211,3 +215,4 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   .nav .btn{padding:9px 16px;font-size:13.5px}
 }
 @media (max-width:1060px) and (min-width:901px){.nav .links{gap:18px}.nav .links a{font-size:14px}}
+@media (max-width:1100px) and (min-width:901px){.g5{grid-template-columns:repeat(3,1fr)}}
