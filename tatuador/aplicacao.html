@@ -50,6 +50,12 @@ main{flex:1;display:flex;align-items:center;justify-content:center;padding:30px 
 .diag .it{background:var(--void-2);border:1px solid var(--faint);border-left:3px solid var(--orange);border-radius:12px;padding:16px 18px}
 .diag .it b{display:block;font-family:var(--display);font-size:18px;margin-bottom:4px}
 .diag .it p{color:var(--muted);font-size:15.5px}
+.diag .it small{display:block;color:var(--amber);font-size:12.5px;margin-bottom:6px}
+.diag-tit{font-family:var(--display);font-size:19px;font-weight:600;margin-bottom:12px}
+.meta3{background:linear-gradient(160deg,var(--void-2),var(--void-3));border:1px solid rgba(245,166,35,.4);border-radius:14px;padding:16px 18px;margin-bottom:26px}
+.meta3 span{display:block;color:var(--amber);text-transform:uppercase;letter-spacing:.12em;font-size:11.5px;font-family:var(--mono);margin-bottom:6px}
+.meta3 b{display:block;font-family:var(--display);font-size:22px;margin-bottom:4px}
+.meta3 p{color:var(--muted);font-size:15px}
 .fase{display:inline-block;border:1px solid rgba(245,166,35,.4);color:var(--amber);border-radius:999px;padding:6px 14px;font-size:13px;margin-bottom:18px}
 .igbox{background:var(--void-2);border:1px solid var(--faint);border-radius:14px;padding:16px 18px;margin:-8px 0 20px}
 .igbox .pf{display:flex;align-items:center;gap:14px;margin-bottom:14px}
@@ -85,8 +91,9 @@ var historico = [];
 // A régua de lead qualificado do worker (form-leads.js, FORM_CONFIGS) valida essas opções pelo texto exato:
 // mudar um texto aqui exige mudar o worker no mesmo deploy, e o worker sobe antes da página.
 var VERBA_QUALIFICA = ['Tenho os R$ 1.800', 'Entre R$ 2.000 e R$ 3.000', 'Acima de R$ 3.000'];
-// Quem fatura até R$ 6 mil recebe as orientações, mesmo com a verba.
-var FATURAMENTO_CORTA = ['Ainda não tenho renda fixa com tattoo','Até R$ 3 mil','Entre R$ 3 mil e R$ 6 mil'];
+// Quem fatura até R$ 3 mil (ou sem renda fixa) recebe as orientações, mesmo com a verba.
+// 17/10/2026: o Lucas liberou quem fatura de R$ 3 a 6 mil e tem a verba.
+var FATURAMENTO_CORTA = ['Ainda não tenho renda fixa com tattoo','Até R$ 3 mil'];
 function qualifica(v){ return VERBA_QUALIFICA.indexOf(v)>=0 && FATURAMENTO_CORTA.indexOf(R.faturamento)<0; }
 
 var TELAS = {
@@ -282,31 +289,52 @@ function conferirInstagram(c, ok, proximo){
     .catch(function(){ clearTimeout(timer); ok.disabled=false; ok.textContent='OK'; seguir('não conferido (consulta falhou)'); });
 }
 
-// Orientações automáticas do momento (quem não passou no corte). Regras simples, sem oferta de gestão.
+// Orientações automáticas (quem não passou no corte). Sem oferta de gestão.
+// 17/10/2026, Lucas: a versão anterior era genérica e fora da realidade ("ninguém coloca valor de tattoo
+// visível no perfil"). Cada orientação agora sai de uma resposta da pessoa e mostra de qual.
 var DICAS = {
-  'Muita gente pergunta o preço e some': ['Deixe um "a partir de" visível', 'Um destaque "Valores" com o preço de partida e o que está incluso responde a dúvida antes de a pessoa te chamar. Você gasta menos tempo repetindo orçamento.'],
-  'Dependo de indicação': ['Guarde a indicação no perfil', 'No fim de cada sessão, grave 15 segundos do cliente falando da experiência e salve num destaque. A indicação passa a vender mesmo quando ninguém lembra de você.'],
-  'Posto e não vira cliente': ['Diga como marcar', 'A cada três posts, um precisa mostrar o caminho: agenda aberta, valor de partida e como chamar. Post bonito sem chamada vira curtida.'],
-  'Agenda com buraco na semana': ['Anuncie as vagas da semana', 'Toda segunda, um story com as datas livres e quantas vagas sobraram. Vaga com prazo mexe mais do que "agenda aberta" o mês inteiro.'],
-  'Cliente só quer desconto': ['Mande valor com contexto', 'Nunca o preço seco no direct. Junto do valor, mande uma peça parecida que você fez e o que está incluso (desenho exclusivo, retoque). Preço sem contexto vira comparação.'],
-  'Não sei o que postar': ['Três tipos em rodízio', 'Tattoo cicatrizada (prova), processo em vídeo (confiança) e cliente falando (desejo). Repetir esses três já resolve o mês de conteúdo.']
+  'Muita gente pergunta o preço e some': ['Antes do valor, entenda o projeto', 'Quando perguntarem o preço, peça a ideia, o local do corpo, o tamanho e uma foto de referência. Mande o orçamento junto de uma tattoo parecida que você já fez e de duas datas livres. Se a pessoa sumir, mande no dia seguinte uma mensagem perguntando se ficou alguma dúvida.'],
+  'Dependo de indicação': ['Peça a foto da tattoo cicatrizada', 'Uns 30 dias depois da sessão, chame o cliente para saber como cicatrizou e peça uma foto. Você ganha conteúdo de prova, ele volta a lembrar de você, e é a hora natural de pedir que marque seu @ quando postar.'],
+  'Posto e não vira cliente': ['Feche cada post com a agenda', 'Na legenda, diga a cidade, o estilo e que a agenda do mês está aberta, e como te chamar. Fixe no topo do perfil três trabalhos do estilo que você mais quer fazer. Quem chega pelo post precisa saber onde você atende e como marcar.'],
+  'Agenda com buraco na semana': ['Encha o horário vago com flash', 'Desenhe alguns flashes no seu estilo, com tamanho e valor já definidos, e ofereça nos stories quando sobrar horário: "abri 2 horários na quinta, quem quiser um desses me chama". É peça pronta, sem vai e volta de orçamento.'],
+  'Cliente só quer desconto': ['Ajuste o projeto, não o preço', 'Quando pedirem desconto, ofereça um tamanho menor, menos detalhe ou dividir em sessões, e aceite parcelar no cartão. O valor do seu trabalho continua o mesmo, e a tattoo passa a caber no bolso do cliente.'],
+  'Não sei o que postar': ['Poste o que só tatuador tem', 'Vídeo curto de você tatuando, a mesma tattoo fresca e cicatrizada lado a lado, o desenho no papel antes de ir para a pele. Esses três formatos se repetem a semana toda sem precisar inventar assunto.']
 };
+// Quantas sessões no mês somam R$ 3 mil, pelo valor médio que a pessoa marcou.
+var SESSOES_3MIL = {
+  'Até R$ 500': 'pelo menos 6 sessões',
+  'Entre R$ 500 e R$ 1.000': 'de 3 a 6 sessões',
+  'Entre R$ 1.000 e R$ 2.000': '2 ou 3 sessões',
+  'Acima de R$ 2.000': '1 ou 2 sessões'
+};
+function minusc(s){ return s.charAt(0).toLowerCase()+s.slice(1); }
 function diagnostico(){
-  var fase, frase, itens = [];
-  var semRenda = R.faturamento==='Ainda não tenho renda fixa com tattoo' || R.ticket==='Até R$ 500';
+  var titulo, frase, meta = null, itens = [];
+  var semRenda = R.faturamento==='Ainda não tenho renda fixa com tattoo';
+  var ate3 = R.faturamento==='Até R$ 3 mil';
   var pequeno = R.ig_seguidores!=null && R.ig_seguidores < 1000;
-  if(semRenda){ fase='Momento: construir a vitrine'; frase='Pelas suas respostas, o primeiro passo é o perfil convencer sozinho quem já chega até ele. Anúncio leva gente nova ao perfil, e vale a pena quando o perfil já mostra seu trabalho, sua cidade e como pedir orçamento.'; }
-  else if(pequeno){ fase='Momento: transformar perfil em agenda'; frase='Pelas suas respostas, o próximo degrau é fazer o perfil trabalhar com o público que você já tem, antes de comprar público novo.'; }
-  else { fase='Momento: preparar o perfil para o anúncio'; frase='Antes de investir, confira se o perfil mostra seu trabalho, sua cidade e como pedir orçamento. Com isso no lugar, um anúncio pequeno passa a ter onde cair.'; }
-  (R.dor||[]).slice(0,2).forEach(function(d){ if(DICAS[d]) itens.push(DICAS[d]); });
+  if(semRenda){
+    titulo = R.nome+', antes do anúncio, a tattoo precisa virar renda.';
+    frase = 'Anúncio coloca gente nova no seu perfil todo dia, mas só vira agenda quando o perfil mostra o seu trabalho e o atendimento sabe fechar quem chega. Com a renda ainda irregular, o método, que custa cerca de R$ 1.800 por mês, pesaria antes de dar retorno.';
+  } else if(ate3){
+    titulo = R.nome+', hoje o anúncio pesaria demais no seu mês.';
+    frase = 'Você fatura até R$ 3 mil com tattoo, e o método custa cerca de R$ 1.800 por mês entre gestão e anúncio. Seria mais da metade do que entra. Antes disso, dá para tirar mais agenda de quem já te procura.';
+  } else {
+    titulo = R.nome+', a tattoo já é renda. Falta o investimento caber.';
+    frase = 'O método custa cerca de R$ 1.800 por mês entre gestão e anúncio, e não vale entrar apertando o caixa. Enquanto isso, estes ajustes fazem a agenda render mais com quem já te procura.';
+  }
+  if((semRenda || ate3) && SESSOES_3MIL[R.ticket])
+    meta = 'Com sessão '+minusc(R.ticket)+', são '+SESSOES_3MIL[R.ticket]+' no mês.';
+  (R.dor||[]).slice(0,2).forEach(function(d){ if(DICAS[d]) itens.push(DICAS[d].concat('Você marcou: '+minusc(d))); });
   if(R.atende_tempo==='Mais de 30 até 120 minutos' || R.atende_tempo==='Mais de 120 minutos')
-    itens.push(['Responda antes de o cliente esfriar', 'Defina uma rotina de checagem das mensagens durante seu horário de atendimento e deixe respostas rápidas salvas para as dúvidas frequentes, com o valor de partida e o próximo passo. Escolha intervalos que consiga cumprir.']);
+    itens.push(['Deixe o primeiro retorno pronto', 'No WhatsApp Business, ative a mensagem de saudação já pedindo a ideia, o local do corpo, o tamanho e uma foto de referência. Ela sai sozinha para quem te chama pela primeira vez, e quando você abrir a conversa já tem o que precisa para passar o valor.', R.atende_tempo==='Mais de 120 minutos' ? 'Você leva mais de 2 horas para responder' : 'Você leva de 30 minutos a 2 horas para responder']);
   if(R.cobra_sinal==='Às vezes' || R.cobra_sinal==='Não cobro')
-    itens.push(['Cobre sinal para segurar a data', 'Peça um sinal na hora de marcar e diga que ele abate do valor final. A data fica garantida para os dois lados.']);
+    itens.push(['Cobre sinal no Pix para fechar a data', 'Na hora de marcar, peça um sinal pelo Pix e diga que ele abate do valor da sessão. Sem sinal, quando o cliente falta, o prejuízo do horário vazio fica só com você.', R.cobra_sinal==='Não cobro' ? 'Você não cobra sinal' : 'Você cobra sinal só às vezes']);
   if(R.frequencia==='1 vez por semana ou menos' || R.frequencia==='Fico semanas sem postar')
-    itens.push(['Constância antes de volume', 'Três posts por semana, no mesmo dia e horário, pesam mais que uma semana cheia seguida de silêncio. Deixe três peças prontas no domingo.']);
-  if(pequeno) itens.push(['Seguidor local vale mais', 'Com menos de 1.000 seguidores, marque a cidade em todo post e siga estúdios e perfis de tattoo da sua região. É o público que te encontra primeiro.']);
-  return {fase:fase, frase:frase, itens:itens.slice(0,4)};
+    itens.push(['Três dias fixos de post', 'Escolha três dias da semana e cumpra só esses. Um vídeo curto de cada sessão já rende o post, sem produção à parte. Perfil parado faz quem chega por indicação achar que você não está atendendo.', R.frequencia==='Fico semanas sem postar' ? 'Você fica semanas sem postar' : 'Você posta 1 vez por semana ou menos']);
+  if(pequeno)
+    itens.push(['Marque a cidade em tudo', 'Com menos de 1.000 seguidores, quem te encontra primeiro é gente da sua região. Marque a localização em todo post e story, e deixe cidade e bairro escritos na bio.', 'Seu perfil tem '+R.ig_seguidores.toLocaleString('pt-BR')+' seguidores']);
+  return {titulo:titulo, frase:frase, meta:meta, itens:itens.slice(0,4)};
 }
 
 function linkWA(txt){ return 'https://wa.me/'+WA+'?text='+encodeURIComponent(txt); }
@@ -363,12 +391,13 @@ function mostrarFim(id, ref){
       '<p class="cta-note">A mensagem já vai escrita. É só enviar.</p></div>';
   } else {
     var d = diagnostico();
-    h = '<div class="tela"><span class="kicker">Orientações para o seu momento</span>'+
-      '<h1>'+R.nome+', aqui está o que a gente faria no seu lugar.</h1>'+
-      '<span class="fase">'+d.fase+'</span><p class="sub">'+d.frase+'</p>'+
-      '<p class="muted" style="font-size:14px;margin:-12px 0 22px">Geradas a partir das suas respostas, sem análise individual do seu Instagram.</p>'+
-      '<div class="diag">'+d.itens.map(function(x){ return '<div class="it"><b>'+x[0]+'</b><p>'+x[1]+'</p></div>'; }).join('')+'</div>'+
-      '<p class="muted" style="font-size:15px;margin-bottom:6px">Hoje a gestão atende quem já vive de tattoo: faturamento a partir de R$ 6 mil por mês e os R$ 1.800 mensais disponíveis. Até lá, estas orientações são o primeiro passo.</p>'+
+    h = '<div class="tela"><span class="kicker">Antes do anúncio</span>'+
+      '<h1>'+d.titulo+'</h1>'+
+      '<p class="sub">'+d.frase+'</p>'+
+      (d.meta ? '<div class="meta3"><span>Primeira meta</span><b>R$ 3 mil por mês com tattoo</b><p>'+d.meta+'</p></div>' : '')+
+      (d.itens.length ? '<p class="diag-tit">O que a gente faria no seu lugar</p>'+
+        '<div class="diag">'+d.itens.map(function(x){ return '<div class="it"><small>'+x[2]+'</small><b>'+x[0]+'</b><p>'+x[1]+'</p></div>'; }).join('')+'</div>' : '')+
+      '<p class="muted" style="font-size:15px;margin-bottom:6px">Hoje a gestão atende quem fatura a partir de R$ 3 mil por mês com tattoo e tem os R$ 1.800 mensais disponíveis. Orientações montadas a partir das suas respostas, sem análise individual do seu perfil.</p>'+
       // sem botao de WhatsApp: quem ficou fora do corte recebe as orientacoes aqui e nao e atendido
       '<p class="cta-note">Quando o momento mudar, o formulário continua aberto.</p></div>';
   }
