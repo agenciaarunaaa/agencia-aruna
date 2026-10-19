@@ -121,7 +121,7 @@ var TELAS = {
 
   prova: {tipo:'info', kicker:'Enquanto isso',
     titulo:function(){ return R.nome+', olha o que só o anúncio já trouxe para quem está com a gente.'; },
-    sub:'Tattoo fechada que começou num anúncio, antes do atendente de IA entrar no método:',
+    sub:'Tattoo fechada que começou num anúncio, antes do atendente de IA entrar no Método Sinal Pago:',
     extra:'<div class="nums3" style="grid-template-columns:1fr 1fr">'+
       '<div><small class="quem">Gabriel · @gtottoo · Águas Claras, DF</small><b>R$ 4.300</b><small>em tattoos fechadas que vieram dos anúncios, desde setembro</small><small class="extra">A primeira foi de R$ 800, com R$ 191 de anúncio até ela. E 9 em cada 10 conversas vieram de quem já tinha visto o trabalho dele.</small><p class="veredito" style="font-size:16px;padding:10px 12px;margin:12px 0 0">Cada uma dessas tattoos começou num anúncio.</p></div>'+
       '<div><small class="quem">Will · Barra do Garças, MT</small><b>R$&nbsp;7&nbsp;mil+</b><small>em 2 tattoos fechadas na primeira semana de anúncio</small><small class="extra">A primeira passou de R$&nbsp;5&nbsp;mil, com mais de R$&nbsp;1&nbsp;mil de sinal, e saiu com menos de R$&nbsp;50 de anúncio até ela. Na semana foram cerca de 40 conversas no WhatsApp.</small><p class="veredito" style="font-size:16px;padding:10px 12px;margin:12px 0 0">Menos de R$&nbsp;150 de anúncio virou mais de R$&nbsp;7&nbsp;mil em tattoo.</p></div>'+
@@ -151,7 +151,7 @@ var TELAS = {
 
   investimentos: {tipo:'info', kicker:'Transparência',
     titulo:'Existem dois investimentos, e você precisa saber dos dois antes.',
-    extra:'<div class="info"><div class="linha"><span>Nosso trabalho: a demanda (campanha e criativo), o Sórisca (nosso atendente de IA) no seu WhatsApp e o placar semanal</span><b>R$ 900</b></div><div class="linha"><span>Anúncio no Meta Ads, pago direto no seu cartão. A Meta soma cerca de R$ 125 de impostos no mês</span><b>R$ 30 por dia<small>cerca de R$ 900 no mês</small></b></div><div class="linha tot"><span>Total por mês, sem fidelidade, mais os impostos da Meta</span><b><small>cerca de</small><em class="grad-txt">R$ 1.800</em></b></div></div><p class="muted" style="margin-bottom:10px">O Sórisca sozinho custa R$ 197/mês. No método, ele já vem incluso.</p><p class="muted" style="margin-bottom:10px">Exemplo de faturamento bruto: três sessões de R$ 1.000 somam R$ 3.000.</p><p class="muted" style="margin-bottom:24px">E não precisa sair de uma vez: a gestão pode ser paga a cada 15 dias (R$ 450) e o anúncio vai para a fatura do seu cartão de crédito.</p>',
+    extra:'<div class="info"><div class="linha"><span>Nosso trabalho: a demanda (campanha e criativo), o Sórisca (nosso atendente de IA) no seu WhatsApp e o placar semanal</span><b>R$ 900</b></div><div class="linha"><span>Anúncio no Meta Ads, pago direto no seu cartão. A Meta soma cerca de R$ 125 de impostos no mês</span><b>R$ 30 por dia<small>cerca de R$ 900 no mês</small></b></div><div class="linha tot"><span>Total por mês, sem fidelidade, mais os impostos da Meta</span><b><small>cerca de</small><em class="grad-txt">R$ 1.800</em></b></div></div><p class="muted" style="margin-bottom:10px">O Sórisca sozinho custa R$ 197/mês. No Método Sinal Pago, ele já vem incluso.</p><p class="muted" style="margin-bottom:10px">Exemplo de faturamento bruto: três sessões de R$ 1.000 somam R$ 3.000.</p><p class="muted" style="margin-bottom:24px">E não precisa sair de uma vez: a gestão pode ser paga a cada 15 dias (R$ 450) e o anúncio vai para a fatura do seu cartão de crédito.</p>',
     botao:'Ok, entendido', prox:'verba'},
 
   verba: {tipo:'uma', chave:'investimento', kicker:'11 de 12', titulo:'Hoje, você consegue investir os R$ 1.800 por mês?', sub:'Contando com a gestão quinzenal e o anúncio no cartão. Os impostos da Meta vêm à parte, na fatura.',
@@ -315,13 +315,13 @@ function diagnostico(){
   var pequeno = R.ig_seguidores!=null && R.ig_seguidores < 1000;
   if(semRenda){
     titulo = R.nome+', antes do anúncio, a tattoo precisa virar renda.';
-    frase = 'Anúncio coloca gente nova no seu perfil todo dia, mas só vira agenda quando o perfil mostra o seu trabalho e o atendimento sabe fechar quem chega. Com a renda ainda irregular, o método, que custa cerca de R$ 1.800 por mês, pesaria antes de dar retorno.';
+    frase = 'Anúncio coloca gente nova no seu perfil todo dia, mas só vira agenda quando o perfil mostra o seu trabalho e o atendimento sabe fechar quem chega. Com a renda ainda irregular, o Método Sinal Pago, que custa cerca de R$ 1.800 por mês, pesaria antes de dar retorno.';
   } else if(ate3){
     titulo = R.nome+', hoje o anúncio pesaria demais no seu mês.';
-    frase = 'Você fatura até R$ 3 mil com tattoo, e o método custa cerca de R$ 1.800 por mês entre gestão e anúncio. Seria mais da metade do que entra. Antes disso, dá para tirar mais agenda de quem já te procura.';
+    frase = 'Você fatura até R$ 3 mil com tattoo, e o Método Sinal Pago custa cerca de R$ 1.800 por mês entre gestão e anúncio. Seria mais da metade do que entra. Antes disso, dá para tirar mais agenda de quem já te procura.';
   } else {
     titulo = R.nome+', a tattoo já é renda. Falta o investimento caber.';
-    frase = 'O método custa cerca de R$ 1.800 por mês entre gestão e anúncio, e não vale entrar apertando o caixa. Enquanto isso, estes ajustes fazem a agenda render mais com quem já te procura.';
+    frase = 'O Método Sinal Pago custa cerca de R$ 1.800 por mês entre gestão e anúncio, e não vale entrar apertando o caixa. Enquanto isso, estes ajustes fazem a agenda render mais com quem já te procura.';
   }
   if((semRenda || ate3) && SESSOES_3MIL[R.ticket])
     meta = 'Com sessão '+minusc(R.ticket)+', são '+SESSOES_3MIL[R.ticket]+' no mês.';
