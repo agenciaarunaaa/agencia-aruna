@@ -20,15 +20,10 @@
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-<link rel="preconnect" href="https://api.fontshare.com">
-<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
-<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,800&display=swap" rel="stylesheet">
-<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<!-- Pixel da Aruna (805389752641637) -->
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
@@ -39,183 +34,244 @@ fbq('init','805389752641637'); fbq('track','PageView');
 </script>
 
 <style>
-:root{
-  --void:#0E0E1C; --card:#15151F; --steel:#1E1E2B; --line:#2A2A3A;
-  --cream:#F4EFE8; --coral:#E8485A; --orange:#FF6B35; --amber:#F5A623;
-  --grad-cta:linear-gradient(110deg,#E8485A 0%,#FF6B35 48%,#F5A623 100%);
-  --fog:#C7C7CD; --smoke:#9A9AA4;
-  --display:'Cabinet Grotesk',system-ui,sans-serif;
-  --body:'General Sans',system-ui,sans-serif;
-  --mono:'JetBrains Mono',ui-monospace,monospace;
-  --ease:cubic-bezier(.23,1,.32,1);
-  --gut:16px;
+/* Hallmark · shape: Marquee Hero · genre: atmospheric · theme: brand · redesign: full
+ * paper: oklch(17% 0.03 285) · accent: oklch(69% 0.19 40) · display: Inter Tight · body: Inter Tight · hero: Ledge · nav: edge wordmark · footer: mast · signature: V.I.V.A. as four nodes on one graph line
+ * axes: dark/grotesk/warm · posture: Ledge · contrast: pass · fold: pass · draw: eda2a4 · v2.0.0 */
+/* Hallmark · pre-emit critique: P3 H3 E3 S3 R3 V3 · weakest: V, the page is long and text-led, so each section takes its own composition from its own content */
+/* Hallmark · dropped "Sem ninguém ver" · 54 names the eyebrow over the heading */
+/* Hallmark · dropped "Custo de não agir" · 54 names the eyebrow over the heading */
+/* Hallmark · dropped "Mecanismo" · 54 names the eyebrow over the heading */
+/* Hallmark · dropped "O que a máquina faz" · 54 names the eyebrow over the heading */
+/* Hallmark · dropped "Como funciona" · 54 names the eyebrow over the heading */
+/* Hallmark · dropped "Os três níveis" · 54 names the eyebrow over the heading */
+/* Hallmark · dropped "Prova" · 54 names the eyebrow over the heading */
+/* Hallmark · dropped "Garantia condicional" · 54 names the eyebrow over the heading */
+/* Hallmark · dropped "Perguntas" · 54 names the eyebrow over the heading */
+/* Hallmark · reworded "[ WhatsApp · 85 9802-6295 ]" to "WhatsApp 85 9802-6295" · 63 names the bracketed, dot-joined footer string */
+/* Hallmark · reworded "[ yanna@agenciaaruna.com ]" to "yanna@agenciaaruna.com" · 63 names the bracketed, dot-joined footer string */
+/* Hallmark · reworded "[ política de privacidade ]" to "política de privacidade" · 63 names the bracketed, dot-joined footer string */
+/* Hallmark · reworded "© 2026 Agência Aruna · todos os direitos reservados" to two lines without the dot · 63 names the bracketed, dot-joined footer string */
+/* Hallmark · reworded "the legal line joined by middle dots" to one fact per line · 63 names the bracketed, dot-joined footer string */
+/* Hallmark · dismissed 59 · a long-form sales letter for corretoras where every section is the owner's own argument and no section may be cut or added */
+/* Hallmark · dismissed 58 · copy is kept word for word by the owner's brief, the shorter headline is asked of the owner in the handoff */
+/* Hallmark · hero-review: fix · 5 findings · 3 resolved (node field density, headline scale, fold bleed at 1920) · 1 owner ask (headline under 7 words) · 1 answered (signature sits in V.I.V.A. by design) */
+/* Hallmark · finish-review: subagent · fix · 6 findings · 5 resolved (sticky split heads in dor and como, section-gap-l before tiers, guarantee head scaled down and proof lines at lead size, V.I.V.A. letter column at 375, list numerals in Inter Tight) · 1 kept (title separator is owner meta kept verbatim) */
+:root {
+  --space-3xs: 2px; --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 144px;
+  --text-xs: 0.8125rem; --text-sm: 0.875rem; --text-md: 1rem; --text-lg: 1.25rem; --text-xl: 1.5625rem; --text-2xl: 1.953rem; --text-3xl: 2.441rem;
+  --text-display-s: clamp(2.25rem, 4vw + 0.5rem, 3.75rem); --text-display: clamp(2.75rem, 5vw + 1rem, 5.25rem);
+  --text-section: clamp(2rem, 2.5vw + 1rem, 3.5rem); --text-title: clamp(1.25rem, 0.75vw + 0.875rem, 1.625rem); --text-lead: clamp(1.125rem, 0.35vw + 1rem, 1.375rem);
+  --text-figure: clamp(2.5rem, 8.5vw, 8rem);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); --ease-in: cubic-bezier(0.7, 0, 0.84, 0); --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms;
+  --container: 1280px; --gutter: 64px; --gap-columns: 32px; --section-gap-s: 120px; --section-gap: 144px; --section-gap-l: 176px;
+  --z-base: 1; --z-raised: 10; --z-sticky: 200; --z-sticky-nav: 300;
+  --color-paper: #0E0E1C; --color-paper-2: #15151F; --color-paper-3: #1E1E2B;
+  --color-ink: #F4EFE8; --color-ink-2: #C7C7CD; --color-muted: #9A9AA4;
+  --color-rule: #2A2A3A;
+  --color-coral: #E8485A; --color-accent: #FF6B35; --color-amber: #F5A623;
+  --color-accent-ink: #14080A; --color-focus: #F5A623;
+  --color-scrim: #0E0E1CF2; --color-scrim-0: #0E0E1C00;
+  --grad-cta: linear-gradient(110deg, var(--color-coral) 0%, var(--color-accent) 48%, var(--color-amber) 100%);
+  --font-display: "Inter Tight", ui-sans-serif, system-ui, sans-serif; --font-body: "Inter Tight", ui-sans-serif, system-ui, sans-serif; --font-outlier: "JetBrains Mono", ui-monospace, monospace;
+  --display-weight: 600;
+  --radius-card: 4px; --radius-pill: 999px; --rule-hair: 1px; --shadow-card: none;
+  --tracking-display: -0.02em;
+  --bar-h: 76px;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
-body{background:var(--void);color:var(--cream);font-family:var(--body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;padding-bottom:84px}
-img,svg{max-width:100%}
-a{color:inherit}
-:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:6px}
-.wrap{width:100%;max-width:1120px;margin:0 auto;padding-inline:var(--gut)}
-.skip{position:absolute;left:var(--gut);top:-60px;background:var(--cream);color:var(--void);padding:10px 14px;border-radius:8px;z-index:100;transition:top .15s var(--ease)}
-.skip:focus{top:8px}
+*, *::before, *::after { box-sizing: border-box; }
+html, body { overflow-x: clip; }
+html { scrollbar-color: var(--color-muted) var(--color-paper); scroll-padding-top: var(--space-3xl); -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink); font-family: var(--font-body); font-size: var(--text-md); line-height: 1.55; -webkit-font-smoothing: antialiased; caret-color: var(--color-accent); }
+::selection { background: color-mix(in oklab, var(--color-accent) 22%, transparent); color: var(--color-ink); }
+:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.16em; }
+h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: var(--display-weight, 700); font-synthesis: none; letter-spacing: var(--tracking-display); line-height: 1.05; overflow-wrap: break-word; min-width: 0; text-wrap: balance; }
+h1 { max-width: 20ch; font-size: var(--text-display); } h2 { max-width: 30ch; font-size: var(--text-section); } h3 { max-width: 40ch; font-size: var(--text-title); line-height: 1.2; }
+.lead { font-size: var(--text-lead); line-height: 1.45; max-width: 52ch; }
+p { margin: 0; text-wrap: pretty; }
+:where(p) { max-width: 65ch; }
+ol, ul { margin: 0; padding: 0; list-style: none; }
+img, video { max-width: 100%; height: auto; display: block; }
+svg { display: block; }
+[hidden] { display: none !important; }
+.container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); box-sizing: border-box; }
+.num { font-variant-numeric: tabular-nums; }
 
-/* tipografia */
-h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.03em;line-height:1.04;text-wrap:balance}
-h1{font-size:clamp(36px,9.4vw,76px)}
-h2{font-size:clamp(28px,6.6vw,48px);max-width:18ch}
-h2.wide{max-width:24ch}
-h3{font-size:22px;letter-spacing:-.02em;line-height:1.15}
-p{max-width:62ch;color:var(--fog)}
-strong{font-weight:600;color:var(--cream)}
-.tag{font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);display:flex;align-items:center;gap:10px;margin-bottom:20px}
-.tag::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--grad-cta);box-shadow:0 0 12px 2px rgba(255,107,53,.6)}
-.grad{background:var(--grad-cta);-webkit-background-clip:text;background-clip:text;color:transparent}
+p { color: var(--color-ink-2); }
+strong { font-weight: 600; color: var(--color-ink); }
 
-section{padding-block:72px;position:relative}
-section + section{border-top:1px solid var(--steel)}
-.stack > * + *{margin-top:20px}
-.stack > h2 + *{margin-top:28px}
+.skip { position: absolute; left: var(--gutter); top: -64px; z-index: var(--z-sticky-nav); background: var(--color-ink); color: var(--color-paper); padding: var(--space-sm) var(--space-md); border-radius: var(--radius-card); transition: top var(--dur-short) var(--ease-out); }
+.skip:focus { top: var(--space-xs); }
 
-/* botão */
-.cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 28px;border-radius:999px;background:var(--grad-cta);color:#14080A;font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:-.01em;text-decoration:none;box-shadow:0 10px 36px -10px rgba(255,107,53,.7);transition:transform .16s var(--ease),box-shadow .2s var(--ease);touch-action:manipulation;text-align:center}
-.cta svg{width:18px;height:18px;flex:none;transition:transform .2s var(--ease)}
-.cta:active{transform:scale(.97)}
-@media (hover:hover) and (pointer:fine){
-  .cta:hover{box-shadow:0 14px 44px -8px rgba(255,107,53,.85)}
-  .cta:hover svg{transform:translateX(3px)}
+.top { position: absolute; inset: 0 0 auto 0; z-index: var(--z-raised); }
+.top .container { display: flex; align-items: center; min-height: 88px; }
+.brand { display: inline-flex; align-items: center; gap: var(--space-sm); min-height: 44px; text-decoration: none; font-weight: 600; font-size: var(--text-lg); letter-spacing: var(--tracking-display); }
+.brand img { width: 28px; height: 28px; border-radius: 7px; }
+
+.cta { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 var(--space-lg); border-radius: var(--radius-pill); background: var(--grad-cta); color: var(--color-accent-ink); font-family: var(--font-body); font-weight: 600; font-size: var(--text-md); letter-spacing: -0.005em; line-height: 1.1; white-space: nowrap; text-decoration: none; touch-action: manipulation; transition: transform var(--dur-micro) var(--ease-out), filter var(--dur-short) var(--ease-out); }
+.cta:active { transform: scale(0.97); }
+@media (hover: hover) and (pointer: fine) { .cta:hover { filter: brightness(1.08); } }
+.micro { font-size: var(--text-sm); color: var(--color-muted); max-width: 44ch; }
+
+.hero { position: relative; isolation: isolate; min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end; padding-block: 120px var(--space-2xl); }
+#grafo { position: absolute; inset: 0; width: 100%; height: 100%; display: block; z-index: -2; }
+.hero::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(to top, var(--color-scrim) 0%, var(--color-scrim) 38%, var(--color-scrim-0) 92%); }
+.hero-base { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); row-gap: var(--space-xl); align-items: end; }
+.hero h1 { grid-column: 1 / span 7; font-size: var(--text-display); max-width: 16ch; line-height: 1.02; letter-spacing: -0.03em; }
+.hero-side { grid-column: 8 / span 5; display: grid; gap: var(--space-lg); justify-items: start; }
+.hero-side .lead { font-size: var(--text-md); line-height: 1.55; max-width: 46ch; }
+.hero .ctx { grid-column: 1 / -1; padding-top: var(--space-lg); border-top: var(--rule-hair) solid var(--color-rule); color: var(--color-ink-2); font-size: var(--text-sm); }
+
+.sec { padding-block: var(--section-gap-s); }
+.sec + .sec { border-top: var(--rule-hair) solid var(--color-rule); }
+.band { background: var(--color-paper-2); color: var(--color-ink); }
+.sec.gap-l { padding-block: var(--section-gap-l); }
+.grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); row-gap: var(--space-xl); }
+.side { grid-column: 1 / span 4; }
+.main { grid-column: 5 / span 8; }
+.head-sticky { position: sticky; top: var(--space-xl); align-self: start; }
+.stack > * + * { margin-top: var(--space-lg); }
+.cta-row { margin-top: var(--space-xl); }
+
+.rows > * { padding-block: var(--space-lg); border-top: var(--rule-hair) solid var(--color-rule); }
+.rows > *:last-child { border-bottom: var(--rule-hair) solid var(--color-rule); }
+.rows p { max-width: 60ch; font-size: var(--text-lead); line-height: 1.5; }
+.fecho { margin-top: var(--space-2xl); font-size: var(--text-title); font-weight: 600; letter-spacing: var(--tracking-display); line-height: 1.3; color: var(--color-ink); max-width: 34ch; }
+
+.dor-h { grid-column: 1 / span 5; max-width: 14ch; position: sticky; top: var(--space-xl); align-self: start; }
+.dor-h + .main { grid-column: 6 / span 7; }
+.custo-top { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); row-gap: var(--space-xl); align-items: end; }
+.custo-top h2 { grid-column: 1 / span 5; }
+.custo-fig { grid-column: 6 / span 7; justify-self: end; text-align: right; }
+.custo-fig .figure-cap { margin-inline-start: auto; }
+.custo-tres { margin-top: var(--space-2xl); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap-columns); padding-top: var(--space-xl); border-top: var(--rule-hair) solid var(--color-rule); }
+.custo-tres strong { color: var(--color-amber); }
+.figure { display: block; white-space: nowrap; font-family: var(--font-outlier); font-weight: 500; font-size: var(--text-figure); line-height: 0.9; letter-spacing: -0.04em; color: var(--color-amber); font-variant-numeric: tabular-nums; }
+.figure-cap { margin-top: var(--space-md); font-family: var(--font-outlier); font-size: var(--text-sm); color: var(--color-muted); max-width: 30ch; }
+.nota { padding-left: var(--space-md); border-left: 2px solid var(--color-rule); }
+.nota p { font-size: var(--text-sm); color: var(--color-muted); max-width: 58ch; }
+
+.viva-intro { margin-top: var(--space-xl); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); }
+.viva-intro > div { grid-column: 5 / span 8; }
+.viva { position: relative; margin-top: var(--space-2xl); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--gap-columns); }
+.viva::before { content: ""; position: absolute; left: 0; right: 0; top: 7px; height: 1px; background: var(--grad-cta); opacity: 0.7; }
+.viva-card { position: relative; padding-top: var(--space-xl); }
+.viva-card .no { position: absolute; left: 0; top: 0; width: 15px; height: 15px; border-radius: 50%; background: var(--color-paper); border: 2px solid var(--color-accent); color: var(--color-accent); }
+.viva-card:nth-child(1) .no { border-color: var(--color-coral); }
+.viva-card:nth-child(4) .no { border-color: var(--color-amber); }
+.letra { display: block; font-family: var(--font-display); font-weight: 600; font-size: clamp(3.5rem, 5vw, 5rem); line-height: 0.9; letter-spacing: -0.04em; color: var(--color-ink); margin-bottom: var(--space-md); }
+.viva-card h3 { margin-bottom: var(--space-sm); }
+.viva-card p { font-size: var(--text-md); }
+.infra { margin-top: var(--space-2xl); background: var(--color-paper-2); padding: var(--space-xl); border-radius: var(--radius-card); }
+.infra p { max-width: 70ch; font-size: var(--text-lead); line-height: 1.5; color: var(--color-ink); }
+
+.lista { margin-top: var(--space-2xl); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--gap-columns); row-gap: var(--space-xl); counter-reset: n; }
+.lista li { display: grid; gap: var(--space-xs); padding-top: var(--space-md); border-top: var(--rule-hair) solid var(--color-rule); counter-increment: n; }
+.lista li::before { content: counter(n, decimal-leading-zero); font-family: var(--font-display); font-weight: 600; font-size: var(--text-md); color: var(--color-amber); }
+.lista strong { font-size: var(--text-title); font-weight: 600; letter-spacing: var(--tracking-display); line-height: 1.2; }
+.lista span { color: var(--color-ink-2); }
+
+.passos { counter-reset: p; }
+.passos li { display: grid; grid-template-columns: 4.5rem minmax(0, 1fr); column-gap: var(--space-lg); padding-block: var(--space-lg); border-top: var(--rule-hair) solid var(--color-rule); counter-increment: p; }
+.passos li:last-child { border-bottom: var(--rule-hair) solid var(--color-rule); }
+.passos li::before { content: counter(p, decimal-leading-zero); grid-row: span 2; font-family: var(--font-display); font-weight: 600; letter-spacing: var(--tracking-display); font-size: var(--text-2xl); line-height: 1; color: var(--color-accent); }
+.passos strong { display: block; font-size: var(--text-title); font-weight: 600; letter-spacing: var(--tracking-display); line-height: 1.2; margin-bottom: var(--space-xs); }
+.passos p { max-width: 60ch; }
+
+.niveis-intro { margin-top: var(--space-lg); max-width: 62ch; }
+.niveis { margin-top: var(--space-2xl); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap-columns); }
+.nivel { display: grid; align-content: start; gap: var(--space-md); padding-top: var(--space-lg); border-top: 2px solid var(--color-rule); }
+.nivel.dest { border-top-color: var(--color-accent); }
+.nivel h3 { font-size: var(--text-2xl); }
+.nivel .p1 { color: var(--color-ink); font-size: var(--text-lg); line-height: 1.4; }
+.cobranca { margin-top: var(--space-2xl); padding: var(--space-xl); background: var(--color-paper-3); border-radius: var(--radius-card); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); row-gap: var(--space-md); }
+.cobranca h3 { grid-column: 1 / span 4; }
+.cobranca p { grid-column: 5 / span 8; max-width: 62ch; }
+
+.dupla { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); row-gap: var(--space-3xl); }
+.dupla .prova { grid-column: 1 / span 5; }
+.dupla .garantia { grid-column: 7 / span 6; background: var(--color-paper-2); padding: var(--space-xl); border-radius: var(--radius-card); }
+.marcas { margin-top: var(--space-xl); }
+.marcas li { padding-block: var(--space-md); border-top: var(--rule-hair) solid var(--color-rule); color: var(--color-ink-2); }
+.marcas li:last-child { border-bottom: var(--rule-hair) solid var(--color-rule); }
+.garantia .intro { margin-top: var(--space-lg); }
+.garantia h2 { font-size: var(--text-2xl); max-width: 22ch; }
+.prova .marcas li { font-size: var(--text-lead); line-height: 1.45; color: var(--color-ink); padding-block: var(--space-lg); }
+.fecho2 { margin-top: var(--space-lg); }
+.fecho2.forte { color: var(--color-ink); }
+
+.faq { border-block: var(--rule-hair) solid var(--color-rule); }
+.faq details + details { border-top: var(--rule-hair) solid var(--color-rule); }
+.faq summary { list-style: none; cursor: pointer; position: relative; min-height: 56px; padding: var(--space-lg) var(--space-2xl) var(--space-lg) 0; font-size: var(--text-lg); font-weight: 600; letter-spacing: -0.01em; line-height: 1.3; -webkit-tap-highlight-color: transparent; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; position: absolute; right: 0; top: var(--space-lg); font-family: var(--font-outlier); font-size: var(--text-lg); line-height: 1.3; color: var(--color-amber); transition: transform var(--dur-short) var(--ease-out); }
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq .resp { padding-bottom: var(--space-lg); }
+.faq .resp p { max-width: 62ch; }
+
+.final { position: relative; isolation: isolate; padding-block: var(--section-gap); }
+#grafo2 { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -2; opacity: 0.55; }
+.final::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(to right, var(--color-scrim) 0%, var(--color-scrim) 40%, var(--color-scrim-0) 100%); }
+.final h2 { font-size: var(--text-display-s); max-width: 16ch; }
+.final .lead { margin-top: var(--space-lg); font-size: var(--text-lead); }
+.transp { margin-top: var(--space-2xl); padding-top: var(--space-lg); border-top: var(--rule-hair) solid var(--color-rule); font-size: var(--text-sm); color: var(--color-muted); max-width: 56ch; }
+
+footer { border-top: var(--rule-hair) solid var(--color-rule); padding-block: var(--section-gap-s) var(--space-xl); }
+.mast { display: block; font-weight: 600; font-size: clamp(4rem, 16vw, 15rem); line-height: 0.82; letter-spacing: -0.05em; color: var(--color-coral); }
+.foot-row { margin-top: var(--space-xl); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); row-gap: var(--space-lg); align-items: start; }
+.foot-row nav { grid-column: 1 / span 6; display: grid; gap: var(--space-2xs); }
+.foot-row nav a { display: inline-flex; align-items: center; min-height: 44px; width: fit-content; text-decoration: none; font-family: var(--font-outlier); font-size: var(--text-sm); color: var(--color-ink-2); transition: color var(--dur-short) var(--ease-out); }
+@media (hover: hover) and (pointer: fine) { .foot-row nav a:hover { color: var(--color-amber); } }
+.foot-legal { grid-column: 7 / span 6; display: grid; gap: var(--space-md); font-size: var(--text-xs); line-height: 1.6; color: var(--color-muted); }
+.foot-legal p { color: inherit; }
+.foot-legal p > span { display: block; }
+.foot-legal a { color: inherit; }
+
+.bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: var(--z-sticky); padding: var(--space-sm) var(--gutter) calc(var(--space-sm) + env(safe-area-inset-bottom)); background: var(--color-paper); border-top: var(--rule-hair) solid var(--color-rule); transform: translateY(110%); transition: transform var(--dur-short) var(--ease-out); display: none; }
+.bar.on { transform: none; }
+.bar .cta { width: 100%; }
+
+.js .rv { opacity: 0; transition: opacity var(--dur-long) var(--ease-out); }
+.js .rv.in { opacity: 1; }
+
+@media (max-width: 60rem) {
+  :root { --gutter: 24px; --section-gap-s: 80px; --section-gap: 96px; --section-gap-l: 120px; }
+  .hero h1, .hero-side { grid-column: 1 / -1; }
+  .hero h1 { max-width: 20ch; }
+  .side, .main, .dor-h, .dor-h + .main, .custo-top h2, .custo-fig, .dupla .prova, .dupla .garantia, .viva-intro > div, .cobranca h3, .cobranca p, .foot-row nav, .foot-legal { grid-column: 1 / -1; }
+  .head-sticky, .dor-h { position: static; max-width: 20ch; }
+  .viva { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: var(--space-2xl); }
+  .viva::before { display: none; }
+  .viva-card { border-top: var(--rule-hair) solid var(--color-rule); }
+  .viva-card .no { top: -8px; }
+  .lista { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .custo-tres { grid-template-columns: minmax(0, 1fr); }
+  .custo-fig { justify-self: start; text-align: left; }
+  .custo-fig .figure-cap { margin-inline-start: 0; }
+  .niveis { grid-template-columns: minmax(0, 1fr); row-gap: var(--space-2xl); }
 }
-.cta-wrap{margin-top:32px}
-.micro{font-size:14px;color:var(--smoke);margin-top:14px;max-width:44ch}
-
-/* topo */
-.top{position:absolute;inset:0 0 auto 0;z-index:5;height:64px}
-.top .wrap{display:flex;align-items:center;height:64px;gap:10px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:700;font-size:18px;letter-spacing:-.02em}
-.brand img{width:28px;height:28px;border-radius:7px}
-
-/* hero */
-.hero{padding-top:128px;padding-bottom:88px;overflow:hidden;min-height:100svh;display:flex;align-items:center;border-top:0}
-#grafo{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0}
-.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 80% at 18% 40%,rgba(14,14,28,.88) 0%,rgba(14,14,28,.55) 55%,rgba(14,14,28,.1) 100%);z-index:1;pointer-events:none}
-.hero .wrap{position:relative;z-index:2}
-.hero h1{max-width:15ch}
-.hero .sub{font-size:18px;margin-top:28px;max-width:52ch;color:var(--fog)}
-.ctx{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-top:28px}
-
-/* dor */
-.dor-grid{display:grid;gap:14px;margin-top:36px}
-.dor-card{background:var(--card);border:1px solid var(--steel);border-radius:18px;padding:22px 20px 22px 22px;position:relative}
-.dor-card p{max-width:none;color:var(--fog)}
-.dor-card::before{content:"";position:absolute;left:0;top:22px;bottom:22px;width:3px;border-radius:3px;background:linear-gradient(180deg,var(--coral),var(--amber))}
-.fecho{margin-top:36px;font-family:var(--display);font-weight:700;font-size:clamp(22px,5vw,32px);letter-spacing:-.02em;line-height:1.2;color:var(--cream);max-width:30ch}
-
-/* custo */
-.custo{background:linear-gradient(180deg,#12121F 0%,var(--void) 100%)}
-.nota{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;font-size:15px}
-.nota p{max-width:none}
-
-/* mecanismo */
-.viva{display:grid;gap:14px;margin-top:40px;position:relative}
-.viva-card{background:var(--card);border:1px solid var(--steel);border-radius:20px;padding:24px 22px;position:relative;transition:border-color .2s var(--ease),transform .2s var(--ease)}
-.viva-card p{max-width:none;font-size:15.5px}
-.letra{font-family:var(--display);font-weight:800;font-size:56px;line-height:.9;letter-spacing:-.04em;display:block;margin-bottom:10px}
-.viva-card h3{margin-bottom:10px}
-.viva-card .no{position:absolute;right:20px;top:22px;width:14px;height:14px;border-radius:50%;background:var(--grad-cta);box-shadow:0 0 16px 3px rgba(255,107,53,.55)}
-.infra{margin-top:36px;padding:22px;border:1px dashed var(--line);border-radius:18px}
-.infra p{max-width:none}
-@media (hover:hover) and (pointer:fine){.viva-card:hover{border-color:#4a3a3a;transform:translateY(-3px)}}
-
-/* máquina */
-.lista{list-style:none;margin-top:36px;display:grid;gap:0;counter-reset:n}
-.lista li{display:grid;grid-template-columns:44px 1fr;gap:6px 16px;padding:22px 0;border-top:1px solid var(--steel);counter-increment:n}
-.lista li:last-child{border-bottom:1px solid var(--steel)}
-.lista li::before{content:counter(n,decimal-leading-zero);font-family:var(--mono);font-size:13px;color:var(--amber);padding-top:5px;grid-row:span 2}
-.lista strong{font-family:var(--display);font-weight:700;font-size:21px;letter-spacing:-.02em;line-height:1.2}
-.lista span{color:var(--fog);grid-column:2}
-
-/* como funciona */
-.passos{list-style:none;margin-top:40px;position:relative;padding-left:44px}
-.passos::before{content:"";position:absolute;left:11px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--coral),var(--orange),var(--amber));opacity:.55}
-.passos li{position:relative;padding-bottom:30px}
-.passos li:last-child{padding-bottom:0}
-.passos li::before{content:"";position:absolute;left:-41px;top:6px;width:16px;height:16px;border-radius:50%;background:var(--void);border:2px solid var(--orange);box-shadow:0 0 14px 2px rgba(255,107,53,.5)}
-.passos strong{display:block;font-family:var(--display);font-weight:700;font-size:21px;letter-spacing:-.02em;margin-bottom:4px;line-height:1.2}
-.passos p{max-width:56ch}
-
-/* níveis */
-.niveis{display:grid;gap:14px;margin-top:36px}
-.nivel{background:var(--card);border:1px solid var(--steel);border-radius:22px;padding:26px 22px}
-.nivel.dest{border-color:transparent;background:linear-gradient(var(--card),var(--card)) padding-box,var(--grad-cta) border-box;border:1.5px solid transparent}
-.nivel h3{font-size:28px;margin-bottom:10px}
-.nivel .p1{color:var(--cream);margin-bottom:12px}
-.nivel p{max-width:none;font-size:15.5px}
-.cobranca{margin-top:36px;padding:24px 22px;border-radius:20px;background:#17151F;border:1px solid var(--line)}
-.cobranca h3{margin-bottom:12px;font-size:20px}
-.cobranca p{max-width:none}
-.cobranca p + p{margin-top:10px}
-
-/* prova + garantia */
-.prova ul,.garantia ul{margin-top:24px;display:grid;gap:12px;list-style:none}
-.prova li,.garantia li{padding:18px 20px 18px 54px;background:var(--card);border:1px solid var(--steel);border-radius:16px;position:relative;color:var(--fog)}
-.prova li::before,.garantia li::before{content:"";position:absolute;left:20px;top:25px;width:14px;height:14px;border-radius:50%;background:var(--grad-cta);box-shadow:0 0 14px 2px rgba(255,107,53,.5)}
-.garantia .fecho2{margin-top:24px;color:var(--fog)}
-
-/* faq */
-.faq{margin-top:36px;border-top:1px solid var(--steel)}
-.faq details{border-bottom:1px solid var(--steel)}
-.faq summary{list-style:none;cursor:pointer;padding:22px 44px 22px 0;font-family:var(--display);font-weight:700;font-size:19px;line-height:1.25;letter-spacing:-.02em;position:relative;min-height:56px;-webkit-tap-highlight-color:transparent}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"";position:absolute;right:4px;top:50%;width:12px;height:12px;margin-top:-9px;border-right:2px solid var(--amber);border-bottom:2px solid var(--amber);transform:rotate(45deg);transition:transform .2s var(--ease)}
-.faq details[open] summary::after{transform:rotate(-135deg);margin-top:-3px}
-.faq .resp{padding:0 0 24px;display:grid;gap:12px}
-.faq .resp p{max-width:60ch}
-
-/* cta final */
-.final{text-align:left;overflow:hidden}
-.final h2{max-width:14ch}
-#grafo2{position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:.7}
-.final .wrap{position:relative;z-index:2}
-.transp{font-size:14px;color:var(--smoke);margin-top:40px;max-width:56ch;padding-top:20px;border-top:1px solid var(--steel)}
-
-/* rodapé */
-footer{border-top:1px solid var(--steel);padding:40px 0 32px;font-size:14px;color:var(--smoke)}
-footer nav{display:flex;flex-wrap:wrap;gap:8px 20px;font-family:var(--mono);font-size:13px}
-footer nav a{text-decoration:none;color:var(--fog);padding:8px 0;min-height:44px;display:inline-flex;align-items:center}
-footer nav a:hover{color:var(--amber)}
-footer .fim{margin-top:18px}
-footer .legal{margin-top:14px;font-size:12px;line-height:1.5;opacity:.75}
-
-/* barra fixa mobile */
-.bar{position:fixed;left:0;right:0;bottom:0;z-index:40;padding:10px var(--gut) calc(10px + env(safe-area-inset-bottom));background:rgba(14,14,28,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--steel);transform:translateY(110%);transition:transform .25s var(--ease)}
-.bar.on{transform:none}
-.bar .cta{width:100%;min-height:52px;font-size:16px}
-
-/* entrada */
-.js .rv{opacity:0;transform:translateY(14px);transition:opacity .5s var(--ease),transform .5s var(--ease);transition-delay:calc(var(--i,0)*60ms)}
-.js .rv.in{opacity:1;transform:none}
-
-@media (min-width:768px){
-  :root{--gut:32px}
-  section{padding-block:112px}
-  body{padding-bottom:0}
-  .bar{display:none}
-  .dor-grid{grid-template-columns:1fr 1fr}
-  .viva{grid-template-columns:1fr 1fr}
-  .niveis{grid-template-columns:repeat(3,1fr)}
-  .hero .sub{font-size:20px}
-  .lista{grid-template-columns:1fr 1fr;column-gap:56px}
-  .lista li:nth-last-child(2){border-bottom:1px solid var(--steel)}
+@media (max-width: 40rem) {
+  :root { --gutter: 16px; --section-gap-s: 56px; --section-gap: 72px; --section-gap-l: 96px; --gap-columns: 16px; }
+  body { padding-bottom: var(--bar-h); }
+  .bar { display: block; }
+  .hero { min-height: auto; padding-top: 104px; }
+  .cta { padding: 0 var(--space-md); font-size: 0.9375rem; }
+  .viva, .lista, .custo-tres { grid-template-columns: minmax(0, 1fr); }
+  .custo-fig { justify-self: start; text-align: left; }
+  .custo-fig .figure-cap { margin-inline-start: 0; }
+  .passos li { grid-template-columns: 2.75rem minmax(0, 1fr); column-gap: var(--space-md); }
+  .passos li::before { font-size: var(--text-lg); }
+  .infra, .cobranca, .dupla .garantia { padding: var(--space-lg); }
+  .rows p { font-size: var(--text-md); }
+  .viva { row-gap: var(--space-lg); }
+  .viva-card { display: grid; grid-template-columns: 3rem minmax(0, 1fr); column-gap: var(--space-md); padding-top: var(--space-lg); }
+  .viva-card .letra { grid-row: span 2; font-size: 2.75rem; margin: 0; }
 }
-@media (min-width:1100px){
-  .hero h1{max-width:16ch}
-  .viva{grid-template-columns:repeat(4,1fr)}
-  .viva-card{padding:26px 20px}
-}
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  .js .rv{opacity:1;transform:none;transition:none}
-  .bar,.cta,.cta svg,.viva-card,.faq summary::after{transition:none}
+@media (max-width: 22rem) { .cta { font-size: 0.875rem; padding: 0 var(--space-sm); } }
+@media (prefers-reduced-motion: reduce) {
+  *:not(.keep-motion), *:not(.keep-motion)::before, *:not(.keep-motion)::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  .js .rv { opacity: 1; }
 }
 </style>
 </head>
@@ -224,97 +280,100 @@ footer .legal{margin-top:14px;font-size:12px;line-height:1.5;opacity:.75}
 <a class="skip" href="#conteudo">Ir para o conteúdo</a>
 
 <header class="top">
-  <div class="wrap">
+  <div class="container">
     <a class="brand" href="/" aria-label="Agência Aruna"><img src="../favicon.svg" alt="" width="28" height="28"><span>Aruna</span></a>
   </div>
 </header>
 
 <main id="conteudo">
 
-<!-- HERO -->
 <section class="hero" aria-labelledby="h-hero">
   <canvas id="grafo" aria-hidden="true"></canvas>
-  <div class="wrap">
-    <h1 id="h-hero" class="rv">Você paga para o lead chegar e a cotação <span class="grad">esfria</span> na caixa de mensagem.</h1>
-    <p class="sub rv" style="--i:1">O Aruna OS responde o lead na hora, traz de volta a cotação que parou e lembra cada renovação a tempo. A meta fica escrita no primeiro dia e a gente confere em 60 dias, sem aumentar o seu time comercial. A IA só fala pelo corretor depois que ele revisa.</p>
-    <div class="cta-wrap rv" style="--i:2">
-      <a class="cta" href="https://wa.me/558598026295?text=Quero%20o%20diagn%C3%B3stico%20da%20minha%20corretora" target="_blank" rel="noopener">Quero o diagnóstico da minha corretora<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <p class="micro">O diagnóstico acontece por mensagem, no WhatsApp. Sem call e sem reunião marcada.</p>
+  <div class="container hero-base">
+    <h1 id="h-hero" class="rv">Você paga para o lead chegar e a cotação esfria na caixa de mensagem.</h1>
+    <div class="hero-side">
+      <p class="lead rv">O Aruna OS responde o lead na hora, traz de volta a cotação que parou e lembra cada renovação a tempo. A meta fica escrita no primeiro dia e a gente confere em 60 dias, sem aumentar o seu time comercial. A IA só fala pelo corretor depois que ele revisa.</p>
+      <a class="cta rv" href="https://wa.me/558598026295?text=Quero%20o%20diagn%C3%B3stico%20da%20minha%20corretora" target="_blank" rel="noopener">Quero o diagnóstico da minha corretora</a>
+      <p class="micro rv">O diagnóstico acontece por mensagem, no WhatsApp. Sem call e sem reunião marcada.</p>
     </div>
-    <p class="ctx rv" style="--i:3">Para corretoras de saúde, consórcio e vida.</p>
+    <p class="ctx rv">Para corretoras de saúde, consórcio e vida.</p>
   </div>
 </section>
 
-<!-- DOR -->
-<section aria-labelledby="h-dor">
-  <div class="wrap">
-    <div class="tag rv">Sem ninguém ver</div>
-    <h2 id="h-dor" class="wide rv">O que acontece hoje na sua corretora, sem ninguém ver</h2>
-    <div class="dor-grid">
-      <div class="dor-card rv"><p>O lead pede preço de manhã. Você está com outro cliente, o time está no telefone, e a resposta sai à tarde. Ou no dia seguinte. Quando sai, o cliente já falou com outra corretora.</p></div>
-      <div class="dor-card rv" style="--i:1"><p>A cotação vai embora na terça. Na quarta o cliente some. Na quinta ninguém pergunta se ele ainda quer, porque ninguém tem tempo e ninguém anotou que era para perguntar.</p></div>
-      <div class="dor-card rv" style="--i:2"><p>A renovação vence na sexta. Quem lembra é a memória de uma pessoa, e a memória falha justo na semana mais corrida. O cliente recebe a proposta de outro corretor e você só descobre quando a apólice já saiu da carteira.</p></div>
-      <div class="dor-card rv" style="--i:3"><p>E tem a base parada: clientes antigos, cotações velhas, gente que nunca mais ouviu seu nome. É comissão que já teve o custo de aquisição pago e dorme.</p></div>
+<section class="sec" aria-labelledby="h-dor">
+  <div class="container grid">
+    <h2 id="h-dor" class="dor-h rv">O que acontece hoje na sua corretora, sem ninguém ver</h2>
+    <div class="main">
+      <div class="rows">
+        <div class="rv"><p>O lead pede preço de manhã. Você está com outro cliente, o time está no telefone, e a resposta sai à tarde. Ou no dia seguinte. Quando sai, o cliente já falou com outra corretora.</p></div>
+        <div class="rv"><p>A cotação vai embora na terça. Na quarta o cliente some. Na quinta ninguém pergunta se ele ainda quer, porque ninguém tem tempo e ninguém anotou que era para perguntar.</p></div>
+        <div class="rv"><p>A renovação vence na sexta. Quem lembra é a memória de uma pessoa, e a memória falha justo na semana mais corrida. O cliente recebe a proposta de outro corretor e você só descobre quando a apólice já saiu da carteira.</p></div>
+        <div class="rv"><p>E tem a base parada: clientes antigos, cotações velhas, gente que nunca mais ouviu seu nome. É comissão que já teve o custo de aquisição pago e dorme.</p></div>
+      </div>
+      <p class="fecho rv">Nada disso é falta de esforço do corretor, é falta de uma rotina que não dependa de lembrar.</p>
     </div>
-    <p class="fecho rv">Nada disso é falta de esforço do corretor, é falta de uma rotina que não dependa de lembrar.</p>
   </div>
 </section>
 
-<!-- CUSTO -->
-<section class="custo" aria-labelledby="h-custo">
-  <div class="wrap stack">
-    <div class="tag rv">Custo de não agir</div>
-    <h2 id="h-custo" class="rv">Cada semana assim tem preço</h2>
-    <p class="rv">Pense em quanto você investe para o lead chegar: anúncio, indicação, tempo seu. Agora pense no que acontece com ele nas primeiras horas. Cada resposta tardia queima o dinheiro que já foi gasto para trazê-lo.</p>
-    <p class="rv">Fizemos a conta para uma corretora que recebe R$ 50 mil de comissão por mês. Somando lead que esfria, cotação esquecida, renovação sem cadência, base parada e venda cruzada que ninguém oferece, a perda pode chegar a até cerca de <strong class="grad">R$ 134 mil por ano</strong> em comissão.</p>
-    <div class="nota rv"><p>Esse número é cálculo nosso, feito com premissas que ainda estamos validando com corretoras. Não é medição e não é promessa. Na sua corretora, a conta é refeita com os seus números, e é por aí que o diagnóstico começa.</p></div>
-    <div class="cta-wrap rv"><a class="cta" href="https://wa.me/558598026295?text=Quero%20o%20diagn%C3%B3stico%20da%20minha%20corretora" target="_blank" rel="noopener">Quero o diagnóstico da minha corretora<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+<section class="sec band custo" aria-labelledby="h-custo">
+  <div class="container">
+    <div class="custo-top">
+      <h2 id="h-custo" class="rv">Cada semana assim tem preço</h2>
+      <div class="custo-fig rv" aria-hidden="true">
+        <p class="figure-cap">até cerca de</p>
+        <span class="figure">R$ 134 mil</span>
+        <p class="figure-cap">por ano em comissão</p>
+      </div>
+    </div>
+    <div class="custo-tres">
+      <p class="rv">Pense em quanto você investe para o lead chegar: anúncio, indicação, tempo seu. Agora pense no que acontece com ele nas primeiras horas. Cada resposta tardia queima o dinheiro que já foi gasto para trazê-lo.</p>
+      <p class="rv">Fizemos a conta para uma corretora que recebe R$ 50 mil de comissão por mês. Somando lead que esfria, cotação esquecida, renovação sem cadência, base parada e venda cruzada que ninguém oferece, a perda pode chegar a até cerca de <strong>R$ 134 mil por ano</strong> em comissão.</p>
+      <div class="nota rv"><p>Esse número é cálculo nosso, feito com premissas que ainda estamos validando com corretoras. Não é medição e não é promessa. Na sua corretora, a conta é refeita com os seus números, e é por aí que o diagnóstico começa.</p></div>
+    </div>
+    <div class="cta-row rv"><a class="cta" href="https://wa.me/558598026295?text=Quero%20o%20diagn%C3%B3stico%20da%20minha%20corretora" target="_blank" rel="noopener">Quero o diagnóstico da minha corretora</a></div>
   </div>
 </section>
 
-<!-- MECANISMO -->
-<section aria-labelledby="h-viva">
-  <div class="wrap">
-    <div class="tag rv">Mecanismo</div>
-    <h2 id="h-viva" class="wide rv">Apólice Viva: toda apólice com data marcada, toda cotação com resposta</h2>
-    <div class="stack" style="margin-top:28px">
-      <p class="rv">Você já tentou resolver isso com mais gente, com planilha, com lembrete no celular. Funciona enquanto o volume é pequeno e quebra quando a corretora cresce, porque tudo depende de alguém lembrar.</p>
-      <p class="rv">A Apólice Viva é um método que tira a lembrança da cabeça das pessoas e coloca na rotina da corretora. Cada lead que entra nasce com uma resposta marcada. Cada cotação enviada nasce com um retorno marcado. Cada vencimento nasce com uma data marcada. Quem decide e quem vende continua sendo o corretor.</p>
-      <p class="rv">O método tem quatro frentes, e o nome delas forma a sigla V.I.V.A.:</p>
+<section class="sec" aria-labelledby="h-viva">
+  <div class="container">
+    <h2 id="h-viva" class="rv">Apólice Viva: toda apólice com data marcada, toda cotação com resposta</h2>
+    <div class="viva-intro">
+      <div class="stack">
+        <p class="rv">Você já tentou resolver isso com mais gente, com planilha, com lembrete no celular. Funciona enquanto o volume é pequeno e quebra quando a corretora cresce, porque tudo depende de alguém lembrar.</p>
+        <p class="rv">A Apólice Viva é um método que tira a lembrança da cabeça das pessoas e coloca na rotina da corretora. Cada lead que entra nasce com uma resposta marcada. Cada cotação enviada nasce com um retorno marcado. Cada vencimento nasce com uma data marcada. Quem decide e quem vende continua sendo o corretor.</p>
+        <p class="rv">O método tem quatro frentes, e o nome delas forma a sigla V.I.V.A.:</p>
+      </div>
     </div>
     <div class="viva">
-      <article class="viva-card rv"><span class="no" aria-hidden="true"></span><span class="letra grad" aria-hidden="true">V</span><h3>V de Vencimentos.</h3><p>Cada renovação é conduzida com antecedência, por seguradora, para a comissão da base não depender da memória de ninguém. Em saúde e seguros, é a renovação. No consórcio, é o momento de recompra que definimos com você na implantação.</p></article>
-      <article class="viva-card rv" style="--i:1"><span class="no" aria-hidden="true"></span><span class="letra grad" aria-hidden="true">I</span><h3>I de Imediato.</h3><p>O lead novo recebe resposta em segundos, de dia, de noite e no fim de semana. A conversa já chega ao corretor com os dados da cotação coletados.</p></article>
-      <article class="viva-card rv" style="--i:2"><span class="no" aria-hidden="true"></span><span class="letra grad" aria-hidden="true">V</span><h3>V de Voltar.</h3><p>A cotação que parou é retomada em dias definidos, com uma pergunta aberta. O corretor só entra quando o cliente responde.</p></article>
-      <article class="viva-card rv" style="--i:3"><span class="no" aria-hidden="true"></span><span class="letra grad" aria-hidden="true">A</span><h3>A de Ampliar.</h3><p>A base dormida é chamada de volta e o cliente que tem um produto só recebe uma oferta de outro, de acordo com o perfil dele.</p></article>
+      <article class="viva-card rv"><span class="no" aria-hidden="true"></span><span class="letra" aria-hidden="true">V</span><h3>V de Vencimentos.</h3><p>Cada renovação é conduzida com antecedência, por seguradora, para a comissão da base não depender da memória de ninguém. Em saúde e seguros, é a renovação. No consórcio, é o momento de recompra que definimos com você na implantação.</p></article>
+      <article class="viva-card rv"><span class="no" aria-hidden="true"></span><span class="letra" aria-hidden="true">I</span><h3>I de Imediato.</h3><p>O lead novo recebe resposta em segundos, de dia, de noite e no fim de semana. A conversa já chega ao corretor com os dados da cotação coletados.</p></article>
+      <article class="viva-card rv"><span class="no" aria-hidden="true"></span><span class="letra" aria-hidden="true">V</span><h3>V de Voltar.</h3><p>A cotação que parou é retomada em dias definidos, com uma pergunta aberta. O corretor só entra quando o cliente responde.</p></article>
+      <article class="viva-card rv"><span class="no" aria-hidden="true"></span><span class="letra" aria-hidden="true">A</span><h3>A de Ampliar.</h3><p>A base dormida é chamada de volta e o cliente que tem um produto só recebe uma oferta de outro, de acordo com o perfil dele.</p></article>
     </div>
     <div class="infra rv"><p>Por baixo das quatro frentes fica a infraestrutura ponta a ponta: captação, CRM com processo de venda, a conversa de WhatsApp registrada e o funil visível para o dono. Você enxerga o que está parado, onde e há quanto tempo.</p></div>
   </div>
 </section>
 
-<!-- MÁQUINA -->
-<section aria-labelledby="h-maq">
-  <div class="wrap">
-    <div class="tag rv">O que a máquina faz</div>
-    <h2 id="h-maq" class="wide rv">A máquina de vendas da sua corretora, por tipo de trabalho</h2>
-    <p class="rv" style="margin-top:28px">O Aruna OS cobre estes trabalhos, todos conectados ao seu CRM:</p>
+<section class="sec" aria-labelledby="h-maq">
+  <div class="container">
+    <h2 id="h-maq" class="rv">A máquina de vendas da sua corretora, por tipo de trabalho</h2>
+    <p class="rv" style="margin-top:var(--space-lg)">O Aruna OS cobre estes trabalhos, todos conectados ao seu CRM:</p>
     <ol class="lista">
       <li class="rv"><strong>Responder o lead.</strong><span>Atende em segundos, qualifica e passa ao corretor com o histórico.</span></li>
-      <li class="rv" style="--i:1"><strong>Acompanhar a cotação.</strong><span>Retoma quem pediu preço e sumiu, até virar conversa de verdade.</span></li>
+      <li class="rv"><strong>Acompanhar a cotação.</strong><span>Retoma quem pediu preço e sumiu, até virar conversa de verdade.</span></li>
       <li class="rv"><strong>Nutrir quem ainda não está pronto.</strong><span>Mantém contato útil com o lead que quer comprar mais adiante.</span></li>
-      <li class="rv" style="--i:1"><strong>Fazer remarketing.</strong><span>Traz de volta quem visitou, perguntou e não fechou.</span></li>
+      <li class="rv"><strong>Fazer remarketing.</strong><span>Traz de volta quem visitou, perguntou e não fechou.</span></li>
       <li class="rv"><strong>Trabalhar a renovação.</strong><span>Avisa antes do vencimento, conduz e registra a data e o próximo passo.</span></li>
-      <li class="rv" style="--i:1"><strong>Oferecer o segundo produto.</strong><span>Venda cruzada para quem já é cliente, como receita de comissão.</span></li>
+      <li class="rv"><strong>Oferecer o segundo produto.</strong><span>Venda cruzada para quem já é cliente, como receita de comissão.</span></li>
     </ol>
-    <p class="fecho rv" style="font-size:clamp(20px,4.4vw,26px)">Tudo isso existe para uma coisa: nenhuma oportunidade de comissão parada sem dono. Nenhuma dessas rotinas fala pelo corretor sem revisão dele.</p>
+    <p class="fecho rv">Tudo isso existe para uma coisa: nenhuma oportunidade de comissão parada sem dono. Nenhuma dessas rotinas fala pelo corretor sem revisão dele.</p>
   </div>
 </section>
 
-<!-- COMO FUNCIONA -->
-<section aria-labelledby="h-como">
-  <div class="wrap">
-    <div class="tag rv">Como funciona</div>
-    <h2 id="h-como" class="wide rv">Do diagnóstico ao primeiro resultado em etapas curtas</h2>
+<section class="sec" aria-labelledby="h-como">
+  <div class="container grid">
+    <h2 id="h-como" class="dor-h rv">Do diagnóstico ao primeiro resultado em etapas curtas</h2>
+    <div class="main">
     <ol class="passos">
       <li class="rv"><strong>Etapa 1. Diagnóstico por mensagem.</strong><p>Você responde algumas perguntas no WhatsApp sobre ramos, volume de leads, carteira e como a corretora atende hoje. Com isso, calculamos onde a comissão escapa.</p></li>
       <li class="rv"><strong>Etapa 2. Meta escrita.</strong><p>No primeiro dia, combinamos por escrito o que vai ser medido: tempo de primeira resposta, cotações retomadas e, nos níveis com renovação, vencimentos com data marcada, contra a linha de base da sua corretora.</p></li>
@@ -322,20 +381,19 @@ footer .legal{margin-top:14px;font-size:12px;line-height:1.5;opacity:.75}
       <li class="rv"><strong>Etapa 4. Medição em 60 dias.</strong><p>Acompanhamos os números combinados e conferimos juntos, ao fim dos 60 dias, o que foi atingido.</p></li>
       <li class="rv"><strong>Etapa 5. Ampliação.</strong><p>Com o gargalo de venda nova resolvido, a infraestrutura avança para renovação, base dormida e venda cruzada, se fizer sentido para você.</p></li>
     </ol>
-    <div class="cta-wrap rv"><a class="cta" href="https://wa.me/558598026295?text=Quero%20o%20diagn%C3%B3stico%20da%20minha%20corretora" target="_blank" rel="noopener">Quero o diagnóstico da minha corretora<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    <div class="cta-row rv"><a class="cta" href="https://wa.me/558598026295?text=Quero%20o%20diagn%C3%B3stico%20da%20minha%20corretora" target="_blank" rel="noopener">Quero o diagnóstico da minha corretora</a></div>
+    </div>
   </div>
 </section>
 
-<!-- NÍVEIS -->
-<section aria-labelledby="h-niv">
-  <div class="wrap">
-    <div class="tag rv">Os três níveis</div>
+<section class="sec band gap-l" aria-labelledby="h-niv">
+  <div class="container">
     <h2 id="h-niv" class="rv">Do tamanho da sua corretora</h2>
-    <p class="rv" style="margin-top:28px">Todos os níveis usam o mesmo método e a mesma infraestrutura. O que muda é a profundidade. Implantação a partir de R$ 7 mil, com o valor de cada nível confirmado depois do diagnóstico.</p>
+    <p class="niveis-intro rv">Todos os níveis usam o mesmo método e a mesma infraestrutura. O que muda é a profundidade. Implantação a partir de R$ 7 mil, com o valor de cada nível confirmado depois do diagnóstico.</p>
     <div class="niveis">
       <article class="nivel rv"><h3>Fundação.</h3><p class="p1">Para quem quer começar pelo que mais dói: lead sem resposta e cotação parada.</p><p>Inclui captação (anúncio e página), CRM configurado com processo de venda, resposta imediata, retomada de cotação, nutrição básica e um playbook enxuto para a equipe. Para um número de WhatsApp. Serve bem a corretora pequena e familiar.</p></article>
-      <article class="nivel dest rv" style="--i:1"><h3 class="grad">Completa.</h3><p class="p1">O nível que atende a maioria das corretoras com equipe de vendas.</p><p>Tudo da Fundação, mais as quatro frentes do V.I.V.A., nutrição e remarketing de quem ainda não está pronto, playbook de vendas completo, oferta com venda cruzada, funil visível no CRM e relatório mensal.</p></article>
-      <article class="nivel rv" style="--i:2"><h3>Ampliada.</h3><p class="p1">Para carteira grande, base dormida ou mais de uma unidade.</p><p>Tudo da Completa, mais reativação estruturada da base como receita, painel de acompanhamento e revisão quinzenal.</p></article>
+      <article class="nivel dest rv"><h3>Completa.</h3><p class="p1">O nível que atende a maioria das corretoras com equipe de vendas.</p><p>Tudo da Fundação, mais as quatro frentes do V.I.V.A., nutrição e remarketing de quem ainda não está pronto, playbook de vendas completo, oferta com venda cruzada, funil visível no CRM e relatório mensal.</p></article>
+      <article class="nivel rv"><h3>Ampliada.</h3><p class="p1">Para carteira grande, base dormida ou mais de uma unidade.</p><p>Tudo da Completa, mais reativação estruturada da base como receita, painel de acompanhamento e revisão quinzenal.</p></article>
     </div>
     <div class="cobranca rv">
       <h3>Como a cobrança funciona (vale para os três):</h3>
@@ -344,40 +402,33 @@ footer .legal{margin-top:14px;font-size:12px;line-height:1.5;opacity:.75}
   </div>
 </section>
 
-<!-- PROVA -->
-<section class="prova" aria-labelledby="h-prova">
-  <div class="wrap">
-    <div class="tag rv">Prova</div>
-    <h2 id="h-prova" class="rv">O que já roda hoje</h2>
-    <ul>
-      <li class="rv">A Aruna implantou CRM e automação numa corretora parceira, que usa o sistema no dia a dia.</li>
-      <li class="rv" style="--i:1">Leads que chegam pelo Facebook entram direto no CRM de clientes nossos, sem digitação, já com a origem registrada.</li>
-    </ul>
+<section class="sec" aria-labelledby="h-prova h-gar">
+  <div class="container dupla">
+    <div class="prova">
+      <h2 id="h-prova" class="rv">O que já roda hoje</h2>
+      <ul class="marcas">
+        <li class="rv">A Aruna implantou CRM e automação numa corretora parceira, que usa o sistema no dia a dia.</li>
+        <li class="rv">Leads que chegam pelo Facebook entram direto no CRM de clientes nossos, sem digitação, já com a origem registrada.</li>
+      </ul>
+    </div>
+    <div class="garantia">
+      <h2 id="h-gar" class="rv">Meta escrita, medida, e ajuste sem custo se a falha for nossa</h2>
+      <p class="intro rv">No primeiro dia, a meta de 60 dias vai para o papel, medida no WhatsApp e no CRM:</p>
+      <ul class="marcas">
+        <li class="rv">lead respondido dentro do prazo combinado;</li>
+        <li class="rv">cotação parada de volta na fila de retomada;</li>
+        <li class="rv">renovação com data marcada, nos níveis que incluem renovação.</li>
+      </ul>
+      <p class="fecho2 forte rv">Se a máquina não entregar isso por falha nossa, com os acessos liberados, corrigimos sem custo e a mensalidade não começa até cumprir.</p>
+      <p class="fecho2 rv">Não garantimos venda nem faturamento. Venda depende de produto, preço, do seu corretor e do mercado. O que garantimos é o que está sob o nosso controle: a máquina responder e retomar no prazo que combinamos.</p>
+    </div>
   </div>
 </section>
 
-<!-- GARANTIA -->
-<section class="garantia" aria-labelledby="h-gar">
-  <div class="wrap">
-    <div class="tag rv">Garantia condicional</div>
-    <h2 id="h-gar" class="wide rv">Meta escrita, medida, e ajuste sem custo se a falha for nossa</h2>
-    <p class="rv" style="margin-top:28px">No primeiro dia, a meta de 60 dias vai para o papel, medida no WhatsApp e no CRM:</p>
-    <ul>
-      <li class="rv">lead respondido dentro do prazo combinado;</li>
-      <li class="rv" style="--i:1">cotação parada de volta na fila de retomada;</li>
-      <li class="rv" style="--i:2">renovação com data marcada, nos níveis que incluem renovação.</li>
-    </ul>
-    <p class="fecho2 rv">Se a máquina não entregar isso por falha nossa, com os acessos liberados, corrigimos sem custo e a mensalidade não começa até cumprir.</p>
-    <p class="fecho2 rv">Não garantimos venda nem faturamento. Venda depende de produto, preço, do seu corretor e do mercado. O que garantimos é o que está sob o nosso controle: a máquina responder e retomar no prazo que combinamos.</p>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section aria-labelledby="h-faq">
-  <div class="wrap">
-    <div class="tag rv">Perguntas</div>
-    <h2 id="h-faq" class="rv">Perguntas frequentes</h2>
-    <div class="faq rv">
+<section class="sec" aria-labelledby="h-faq">
+  <div class="container grid">
+    <div class="side"><h2 id="h-faq" class="head-sticky rv">Perguntas frequentes</h2></div>
+    <div class="faq main rv">
       <details><summary>Já uso uma ferramenta de IA gratuita no WhatsApp. Por que mudar?</summary><div class="resp"><p>Pode continuar usando, as duas podem conviver. A diferença é o alcance. Uma ferramenta de atendimento cuida de parte da conversa. O Aruna OS monta a infraestrutura de vendas da própria corretora: captação, CRM com processo, retomada de cotação, renovação e base, com as regras e o histórico dos seus clientes na sua conta. Pergunta que ajuda a decidir: onde fica o histórico do cliente, e de quem ele é?</p></div></details>
       <details><summary>Meu sistema (multicálculo, gestão) já faz isso.</summary><div class="resp"><p>O sistema cota e organiza, e isso continua valendo. Falta, na maioria das corretoras, quem chame o cliente de volta quando a cotação parou e quem avise do vencimento a tempo. O Aruna OS se conecta ao que você já usa e cuida desse contato ativo. Pergunta: quem chama hoje o cliente cuja apólice vence daqui a 30 dias?</p></div></details>
       <details><summary>E se a IA falar besteira com o meu cliente?</summary><div class="resp"><p>O escopo é fechado. A IA faz triagem, coleta dados de cotação e retoma conversa. Recomendação de cobertura e tudo que envolve sinistro vão para o corretor. E nenhuma mensagem fala em seu nome antes de você revisar o texto e as regras. Nas primeiras semanas, você acompanha as conversas de perto.</p></div></details>
@@ -388,27 +439,31 @@ footer .legal{margin-top:14px;font-size:12px;line-height:1.5;opacity:.75}
   </div>
 </section>
 
-<!-- CTA FINAL -->
 <section class="final" aria-labelledby="h-final">
   <canvas id="grafo2" aria-hidden="true"></canvas>
-  <div class="wrap">
+  <div class="container">
     <h2 id="h-final" class="rv">Sua próxima cotação já está esfriando.</h2>
-    <p class="rv" style="margin-top:28px">Em poucas mensagens no WhatsApp, calculamos onde a comissão da sua corretora está escapando e qual dos três níveis cabe no seu caso. Sem call, sem reunião, sem compromisso de contratar.</p>
-    <div class="cta-wrap rv"><a class="cta" href="https://wa.me/558598026295?text=Quero%20o%20diagn%C3%B3stico%20da%20minha%20corretora" target="_blank" rel="noopener">Quero o diagnóstico da minha corretora<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    <p class="lead rv">Em poucas mensagens no WhatsApp, calculamos onde a comissão da sua corretora está escapando e qual dos três níveis cabe no seu caso. Sem call, sem reunião, sem compromisso de contratar.</p>
+    <div class="cta-row rv"><a class="cta" href="https://wa.me/558598026295?text=Quero%20o%20diagn%C3%B3stico%20da%20minha%20corretora" target="_blank" rel="noopener">Quero o diagnóstico da minha corretora</a></div>
     <p class="transp rv">O Aruna OS não promete resultado de venda. Os números desta página são estimativas ou metas combinadas por escrito com cada corretora.</p>
   </div>
 </section>
 </main>
 
 <footer>
-  <div class="wrap">
-    <nav aria-label="Rodapé">
-      <a class="wa" href="https://wa.me/558598026295?text=Quero%20o%20diagn%C3%B3stico%20da%20minha%20corretora" target="_blank" rel="noopener">[ WhatsApp · 85 9802-6295 ]</a>
-      <a href="mailto:yanna@agenciaaruna.com">[ yanna@agenciaaruna.com ]</a>
-      <a href="/politica-de-privacidade/">[ política de privacidade ]</a>
-    </nav>
-    <p class="fim">© <span id="ano">2026</span> Agência Aruna · todos os direitos reservados</p>
-    <p class="legal">Agência Aruna · 58.265.276 YANNA BARBARA PONTES DAMASCENO · CNPJ 58.265.276/0001-81 · Fortaleza, CE · CEP 60743-250 · <a href="mailto:yanna@agenciaaruna.com" style="color:inherit">yanna@agenciaaruna.com</a></p>
+  <div class="container">
+    <span class="mast" aria-hidden="true">Aruna</span>
+    <div class="foot-row">
+      <nav aria-label="Rodapé">
+        <a class="wa" href="https://wa.me/558598026295?text=Quero%20o%20diagn%C3%B3stico%20da%20minha%20corretora" target="_blank" rel="noopener">WhatsApp 85 9802-6295</a>
+        <a href="mailto:yanna@agenciaaruna.com">yanna@agenciaaruna.com</a>
+        <a href="/politica-de-privacidade/">política de privacidade</a>
+      </nav>
+      <div class="foot-legal">
+        <p class="fim"><span>© <span id="ano">2026</span> Agência Aruna</span><span>todos os direitos reservados</span></p>
+        <p class="legal"><span>Agência Aruna</span><span>58.265.276 YANNA BARBARA PONTES DAMASCENO</span><span>CNPJ 58.265.276/0001-81</span><span>Fortaleza, CE</span><span>CEP 60743-250</span><span><a href="mailto:yanna@agenciaaruna.com">yanna@agenciaaruna.com</a></span></p>
+      </div>
+    </div>
   </div>
 </footer>
 
@@ -420,16 +475,10 @@ footer .legal{margin-top:14px;font-size:12px;line-height:1.5;opacity:.75}
 document.documentElement.classList.add('js');
 (function(){
   var RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* ano */
   try{document.getElementById('ano').textContent=new Date().getFullYear()}catch(e){}
-
-  /* Pixel: Contact no clique de qualquer CTA */
   document.querySelectorAll('a.cta, a.wa').forEach(function(a){
     a.addEventListener('click',function(){ try{ if(window.fbq) fbq('track','Contact'); }catch(e){} });
   });
-
-  /* entrada por scroll */
   var rv=[].slice.call(document.querySelectorAll('.rv'));
   if(RM||!('IntersectionObserver' in window)){ rv.forEach(function(el){el.classList.add('in')}); }
   else{
@@ -437,17 +486,12 @@ document.documentElement.classList.add('js');
       es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
     },{rootMargin:'0px 0px -8% 0px',threshold:.08});
     rv.forEach(function(el){io.observe(el)});
-    /* o hero aparece de imediato, em cascata */
     requestAnimationFrame(function(){ document.querySelectorAll('.hero .rv').forEach(function(el){el.classList.add('in')}); });
   }
-
-  /* barra fixa mobile: aparece depois do hero */
   var bar=document.getElementById('bar'), hero=document.querySelector('.hero');
   if(bar&&hero&&'IntersectionObserver' in window){
     new IntersectionObserver(function(es){ var on=!es[0].isIntersecting && es[0].boundingClientRect.top<0; bar.classList.toggle('on',on); bar.inert=!on; bar.setAttribute('aria-hidden',on?'false':'true'); },{threshold:0}).observe(hero);
   }
-
-  /* grafo de nódulos conectados */
   var COLORS=['232,72,90','255,107,53','245,166,35'];
   function Grafo(canvas,density){
     var ctx=canvas.getContext('2d'), W=0,H=0,dpr=1,nodes=[],vis=true,raf=0,t0=0;
@@ -455,7 +499,7 @@ document.documentElement.classList.add('js');
       var r=canvas.parentElement.getBoundingClientRect();
       dpr=Math.min(window.devicePixelRatio||1,2);
       W=r.width;H=r.height;canvas.width=W*dpr;canvas.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
-      var n=Math.round(Math.max(14,Math.min(46,W*H/density)));
+      var n=Math.round(Math.max(14,Math.min(72,W*H/density)));
       nodes=[];
       for(var i=0;i<n;i++){
         nodes.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.22,vy:(Math.random()-.5)*.22,
@@ -471,7 +515,7 @@ document.documentElement.classList.add('js');
           b=nodes[j];
           var dx=a.x-b.x,dy=a.y-b.y,d=Math.sqrt(dx*dx+dy*dy);
           if(d<D){
-            ctx.strokeStyle='rgba('+a.c+','+(0.34*(1-d/D)).toFixed(3)+')';
+            ctx.strokeStyle='rgba('+a.c+','+(0.44*(1-d/D)).toFixed(3)+')';
             ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();
           }
         }
