@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aruna OS para Corretoras · diagnóstico da sua corretora</title>
+<meta name="description" content="O Aruna OS responde o lead na hora, traz de volta a cotação que parou e lembra cada renovação a tempo. Diagnóstico por mensagem, no WhatsApp. Para corretoras de saúde, consórcio e vida.">
+<link rel="canonical" href="https://agenciaaruna.com/corretoras/">
+<meta name="theme-color" content="#0E0E1C">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://agenciaaruna.com/corretoras/">
+<meta property="og:site_name" content="Agência Aruna">
+<meta property="og:title" content="Aruna OS para Corretoras · diagnóstico da sua corretora">
+<meta property="og:description" content="Responde o lead na hora, retoma a cotação que parou e lembra cada renovação a tempo. Diagnóstico por mensagem, sem call.">
+<meta property="og:image" content="https://agenciaaruna.com/img/og-aruna-os.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,800&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Pixel da Aruna (805389752641637) -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','805389752641637'); fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt=""
+  src="https://www.facebook.com/tr?id=805389752641637&ev=PageView&noscript=1"></noscript>
+
+<style>
+:root{
+  --void:#0E0E1C; --card:#15151F; --steel:#1E1E2B; --line:#2A2A3A;
+  --cream:#F4EFE8; --coral:#E8485A; --orange:#FF6B35; --amber:#F5A623;
+  --grad-cta:linear-gradient(110deg,#E8485A 0%,#FF6B35 48%,#F5A623 100%);
+  --fog:#C7C7CD; --smoke:#9A9AA4;
+  --display:'Cabinet Grotesk',system-ui,sans-serif;
+  --body:'General Sans',system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+  --ease:cubic-bezier(.23,1,.32,1);
+  --gut:16px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{background:var(--void);color:var(--cream);font-family:var(--body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;padding-bottom:84px}
+img,svg{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:6px}
+.wrap{width:100%;max-width:1120px;margin:0 auto;padding-inline:var(--gut)}
+.skip{position:absolute;left:var(--gut);top:-60px;background:var(--cream);color:var(--void);padding:10px 14px;border-radius:8px;z-index:100;transition:top .15s var(--ease)}
+.skip:focus{top:8px}
+
+/* tipografia */
+h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.03em;line-height:1.04;text-wrap:balance}
+h1{font-size:clamp(36px,9.4vw,76px)}
+h2{font-size:clamp(28px,6.6vw,48px);max-width:18ch}
+h2.wide{max-width:24ch}
+h3{font-size:22px;letter-spacing:-.02em;line-height:1.15}
+p{max-width:62ch;color:var(--fog)}
+strong{font-weight:600;color:var(--cream)}
+.tag{font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);display:flex;align-items:center;gap:10px;margin-bottom:20px}
+.tag::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--grad-cta);box-shadow:0 0 12px 2px rgba(255,107,53,.6)}
+.grad{background:var(--grad-cta);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+section{padding-block:72px;position:relative}
+section + section{border-top:1px solid var(--steel)}
+.stack > * + *{margin-top:20px}
+.stack > h2 + *{margin-top:28px}
+
+/* botão */
+.cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 28px;border-radius:999px;background:var(--grad-cta);color:#14080A;font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:-.01em;text-decoration:none;box-shadow:0 10px 36px -10px rgba(255,107,53,.7);transition:transform .16s var(--ease),box-shadow .2s var(--ease);touch-action:manipulation;text-align:center}
+.cta svg{width:18px;height:18px;flex:none;transition:transform .2s var(--ease)}
+.cta:active{transform:scale(.97)}
+@media (hover:hover) and (pointer:fine){
+  .cta:hover{box-shadow:0 14px 44px -8px rgba(255,107,53,.85)}
+  .cta:hover svg{transform:translateX(3px)}
+}
+.cta-wrap{margin-top:32px}
+.micro{font-size:14px;color:var(--smoke);margin-top:14px;max-width:44ch}
+
+/* topo */
+.top{position:absolute;inset:0 0 auto 0;z-index:5;height:64px}
+.top .wrap{display:flex;align-items:center;height:64px;gap:10px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:700;font-size:18px;letter-spacing:-.02em}
+.brand img{width:28px;height:28px;border-radius:7px}
+
+/* hero */
+.hero{padding-top:128px;padding-bottom:88px;overflow:hidden;min-height:100svh;display:flex;align-items:center;border-top:0}
+#grafo{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 80% at 18% 40%,rgba(14,14,28,.88) 0%,rgba(14,14,28,.55) 55%,rgba(14,14,28,.1) 100%);z-index:1;pointer-events:none}
+.hero .wrap{position:relative;z-index:2}
+.hero h1{max-width:15ch}
+.hero .sub{font-size:18px;margin-top:28px;max-width:52ch;color:var(--fog)}
+.ctx{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-top:28px}
+
+/* dor */
+.dor-grid{display:grid;gap:14px;margin-top:36px}
+.dor-card{background:var(--card);border:1px solid var(--steel);border-radius:18px;padding:22px 20px 22px 22px;position:relative}
+.dor-card p{max-width:none;color:var(--fog)}
+.dor-card::before{content:"";position:absolute;left:0;top:22px;bottom:22px;width:3px;border-radius:3px;background:linear-gradient(180deg,var(--coral),var(--amber))}
+.fecho{margin-top:36px;font-family:var(--display);font-weight:700;font-size:clamp(22px,5vw,32px);letter-spacing:-.02em;line-height:1.2;color:var(--cream);max-width:30ch}
+
+/* custo */
+.custo{background:linear-gradient(180deg,#12121F 0%,var(--void) 100%)}
+.nota{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;font-size:15px}
+.nota p{max-width:none}
+
+/* mecanismo */
+.viva{display:grid;gap:14px;margin-top:40px;position:relative}
+.viva-card{background:var(--card);border:1px solid var(--steel);border-radius:20px;padding:24px 22px;position:relative;transition:border-color .2s var(--ease),transform .2s var(--ease)}
+.viva-card p{max-width:none;font-size:15.5px}
+.letra{font-family:var(--display);font-weight:800;font-size:56px;line-height:.9;letter-spacing:-.04em;display:block;margin-bottom:10px}
+.viva-card h3{margin-bottom:10px}
+.viva-card .no{position:absolute;right:20px;top:22px;width:14px;height:14px;border-radius:50%;background:var(--grad-cta);box-shadow:0 0 16px 3px rgba(255,107,53,.55)}
+.infra{margin-top:36px;padding:22px;border:1px dashed var(--line);border-radius:18px}
+.infra p{max-width:none}
+@media (hover:hover) and (pointer:fine){.viva-card:hover{border-color:#4a3a3a;transform:translateY(-3px)}}
+
+/* máquina */
+.lista{list-style:none;margin-top:36px;display:grid;gap:0;counter-reset:n}
+.lista li{display:grid;grid-template-columns:44px 1fr;gap:6px 16px;padding:22px 0;border-top:1px solid var(--steel);counter-increment:n}
+.lista li:last-child{border-bottom:1px solid var(--steel)}
+.lista li::before{content:counter(n,decimal-leading-zero);font-family:var(--mono);font-size:13px;color:var(--amber);padding-top:5px;grid-row:span 2}
+.lista strong{font-family:var(--display);font-weight:700;font-size:21px;letter-spacing:-.02em;line-height:1.2}
+.lista span{color:var(--fog);grid-column:2}
+
+/* como funciona */
+.passos{list-style:none;margin-top:40px;position:relative;padding-left:44px}
+.passos::before{content:"";position:absolute;left:11px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--coral),var(--orange),var(--amber));opacity:.55}
+.passos li{position:relative;padding-bottom:30px}
+.passos li:last-child{padding-bottom:0}
+.passos li::before{content:"";position:absolute;left:-41px;top:6px;width:16px;height:16px;border-radius:50%;background:var(--void);border:2px solid var(--orange);box-shadow:0 0 14px 2px rgba(255,107,53,.5)}
+.passos strong{display:block;font-family:var(--display);font-weight:700;font-size:21px;letter-spacing:-.02em;margin-bottom:4px;line-height:1.2}
+.passos p{max-width:56ch}
+
+/* níveis */
+.niveis{display:grid;gap:14px;margin-top:36px}
+.nivel{background:var(--card);border:1px solid var(--steel);border-radius:22px;padding:26px 22px}
+.nivel.dest{border-color:transparent;background:linear-gradient(var(--card),var(--card)) padding-box,var(--grad-cta) border-box;border:1.5px solid transparent}
+.nivel h3{font-size:28px;margin-bottom:10px}
+.nivel .p1{color:var(--cream);margin-bottom:12px}
+.nivel p{max-width:none;font-size:15.5px}
+.cobranca{margin-top:36px;padding:24px 22px;border-radius:20px;background:#17151F;border:1px solid var(--line)}
+.cobranca h3{margin-bottom:12px;font-size:20px}
+.cobranca p{max-width:none}
+.cobranca p + p{margin-top:10px}
+
+/* prova + garantia */
+.prova ul,.garantia ul{margin-top:24px;display:grid;gap:12px;list-style:none}
+.prova li,.garantia li{padding:18px 20px 18px 54px;background:var(--card);border:1px solid var(--steel);border-radius:16px;position:relative;color:var(--fog)}
+.prova li::before,.garantia li::before{content:"";position:absolute;left:20px;top:25px;width:14px;height:14px;border-radius:50%;background:var(--grad-cta);box-shadow:0 0 14px 2px rgba(255,107,53,.5)}
+.garantia .fecho2{margin-top:24px;color:var(--fog)}
+
+/* faq */
+.faq{margin-top:36px;border-top:1px solid var(--steel)}
+.faq details{border-bottom:1px solid var(--steel)}
+.faq summary{list-style:none;cursor:pointer;padding:22px 44px 22px 0;font-family:var(--display);font-weight:700;font-size:19px;line-height:1.25;letter-spacing:-.02em;position:relative;min-height:56px;-webkit-tap-highlight-color:transparent}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";position:absolute;right:4px;top:50%;width:12px;height:12px;margin-top:-9px;border-right:2px solid var(--amber);border-bottom:2px solid var(--amber);transform:rotate(45deg);transition:transform .2s var(--ease)}
+.faq details[open] summary::after{transform:rotate(-135deg);margin-top:-3px}
+.faq .resp{padding:0 0 24px;display:grid;gap:12px}
+.faq .resp p{max-width:60ch}
+
+/* cta final */
+.final{text-align:left;overflow:hidden}
+.final h2{max-width:14ch}
+#grafo2{position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:.7}
+.final .wrap{position:relative;z-index:2}
+.transp{font-size:14px;color:var(--smoke);margin-top:40px;max-width:56ch;padding-top:20px;border-top:1px solid var(--steel)}
+
+/* rodapé */
+footer{border-top:1px solid var(--steel);padding:40px 0 32px;font-size:14px;color:var(--smoke)}
+footer nav{display:flex;flex-wrap:wrap;gap:8px 20px;font-family:var(--mono);font-size:13px}
+footer nav a{text-decoration:none;color:var(--fog);padding:8px 0;min-height:44px;display:inline-flex;align-items:center}
+footer nav a:hover{color:var(--amber)}
+footer .fim{margin-top:18px}
+footer .legal{margin-top:14px;font-size:12px;line-height:1.5;opacity:.75}
+
+/* barra fixa mobile */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:40;padding:10px var(--gut) calc(10px + env(safe-area-inset-bottom));background:rgba(14,14,28,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--steel);transform:translateY(110%);transition:transform .25s var(--ease)}
+.bar.on{transform:none}
+.bar .cta{width:100%;min-height:52px;font-size:16px}
+
+/* entrada */
+.js .rv{opacity:0;transform:translateY(14px);transition:opacity .5s var(--ease),transform .5s var(--ease);transition-delay:calc(var(--i,0)*60ms)}
+.js .rv.in{opacity:1;transform:none}
+
+@media (min-width:768px){
+  :root{--gut:32px}
+  section{padding-block:112px}
+  body{padding-bottom:0}
+  .bar{display:none}
+  .dor-grid{grid-template-columns:1fr 1fr}
+  .viva{grid-template-columns:1fr 1fr}
+  .niveis{grid-template-columns:repeat(3,1fr)}
+  .hero .sub{font-size:20px}
+  .lista{grid-template-columns:1fr 1fr;column-gap:56px}
+  .lista li:nth-last-child(2){border-bottom:1px solid var(--steel)}
+}
+@media (min-width:1100px){
+  .hero h1{max-width:16ch}
+  .viva{grid-template-columns:repeat(4,1fr)}
+  .viva-card{padding:26px 20px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .rv{opacity:1;transform:none;transition:none}
+  .bar,.cta,.cta svg,.viva-card,.faq summary::after{transition:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#conteudo">Ir para o conteúdo</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Agência Aruna"><img src="../favicon.svg" alt="" width="28" height="28"><span>Aruna</span></a>
+  </div>
+</header>
+
+<main id="conteudo">
+
+<!-- HERO -->
+<section class="hero" aria-labelledby="h-hero">
+  <canvas id="grafo" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <h1 id="h-hero" class="rv">Você paga para o lead chegar e a cotação <span class="grad">esfria</span> na caixa de mensagem.</h1>
+    <p class="sub rv" style="--i:1">O Aruna OS responde o lead na hora, traz de volta a cotação que parou e lembra cada renovação a tempo. A meta fica escrita no primeiro dia e a gente confere em 60 dias, sem aumentar o seu time comercial. A IA só fala pelo corretor depois que ele revisa.</p>
+    <div class="cta-wrap rv" style="--i:2">
+      <a class="cta" href="https://wa.me/558598026295?text=Quero%20o%20diagn%C3%B3stico%20da%20minha%20corretora" target="_blank" rel="noopener">Quero o diagnóstico da minha corretora<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <p class="micro">O diagnóstico acontece por mensagem, no WhatsApp. Sem call e sem reunião marcada.</p>
+    </div>
+    <p class="ctx rv" style="--i:3">Para corretoras de saúde, consórcio e vida.</p>
+  </div>
+</section>
+
+<!-- DOR -->
+<section aria-labelledby="h-dor">
+  <div class="wrap">
+    <div class="tag rv">Sem ninguém ver</div>
+    <h2 id="h-dor" class="wide rv">O que acontece hoje na sua corretora, sem ninguém ver</h2>
+    <div class="dor-grid">
+      <div class="dor-card rv"><p>O lead pede preço de manhã. Você está com outro cliente, o time está no telefone, e a resposta sai à tarde. Ou no dia seguinte. Quando sai, o cliente já falou com outra corretora.</p></div>
+      <div class="dor-card rv" style="--i:1"><p>A cotação vai embora na terça. Na quarta o cliente some. Na quinta ninguém pergunta se ele ainda quer, porque ninguém tem tempo e ninguém anotou que era para perguntar.</p></div>
+      <div class="dor-card rv" style="--i:2"><p>A renovação vence na sexta. Quem lembra é a memória de uma pessoa, e a memória falha justo na semana mais corrida. O cliente recebe a proposta de outro corretor e você só descobre quando a apólice já saiu da carteira.</p></div>
+      <div class="dor-card rv" style="--i:3"><p>E tem a base parada: clientes antigos, cotações velhas, gente que nunca mais ouviu seu nome. É comissão que já teve o custo de aquisição pago e dorme.</p></div>
+    </div>
+    <p class="fecho rv">Nada disso é falta de esforço do corretor, é falta de uma rotina que não dependa de lembrar.</p>
+  </div>
+</section>
+
+<!-- CUSTO -->
+<section class="custo" aria-labelledby="h-custo">
+  <div class="wrap stack">
+    <div class="tag rv">Custo de não agir</div>
+    <h2 id="h-custo" class="rv">Cada semana assim tem preço</h2>
+    <p class="rv">Pense em quanto você investe para o lead chegar: anúncio, indicação, tempo seu. Agora pense no que acontece com ele nas primeiras horas. Cada resposta tardia queima o dinheiro que já foi gasto para trazê-lo.</p>
+    <p class="rv">Fizemos a conta para uma corretora que recebe R$ 50 mil de comissão por mês. Somando lead que esfria, cotação esquecida, renovação sem cadência, base parada e venda cruzada que ninguém oferece, a perda pode chegar a até cerca de <strong class="grad">R$ 134 mil por ano</strong> em comissão.</p>
+    <div class="nota rv"><p>Esse número é cálculo nosso, feito com premissas que ainda estamos validando com corretoras. Não é medição e não é promessa. Na sua corretora, a conta é refeita com os seus números, e é por aí que o diagnóstico começa.</p></div>
+    <div class="cta-wrap rv"><a class="cta" href="https://wa.me/558598026295?text=Quero%20o%20diagn%C3%B3stico%20da%20minha%20corretora" target="_blank" rel="noopener">Quero o diagnóstico da minha corretora<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </div>
+</section>
+
+<!-- MECANISMO -->
+<section aria-labelledby="h-viva">
+  <div class="wrap">
+    <div class="tag rv">Mecanismo</div>
+    <h2 id="h-viva" class="wide rv">Apólice Viva: toda apólice com data marcada, toda cotação com resposta</h2>
+    <div class="stack" style="margin-top:28px">
+      <p class="rv">Você já tentou resolver isso com mais gente, com planilha, com lembrete no celular. Funciona enquanto o volume é pequeno e quebra quando a corretora cresce, porque tudo depende de alguém lembrar.</p>
+      <p class="rv">A Apólice Viva é um método que tira a lembrança da cabeça das pessoas e coloca na rotina da corretora. Cada lead que entra nasce com uma resposta marcada. Cada cotação enviada nasce com um retorno marcado. Cada vencimento nasce com uma data marcada. Quem decide e quem vende continua sendo o corretor.</p>
+      <p class="rv">O método tem quatro frentes, e o nome delas forma a sigla V.I.V.A.:</p>
+    </div>
+    <div class="viva">
+      <article class="viva-card rv"><span class="no" aria-hidden="true"></span><span class="letra grad" aria-hidden="true">V</span><h3>V de Vencimentos.</h3><p>Cada renovação é conduzida com antecedência, por seguradora, para a comissão da base não depender da memória de ninguém. Em saúde e seguros, é a renovação. No consórcio, é o momento de recompra que definimos com você na implantação.</p></article>
+      <article class="viva-card rv" style="--i:1"><span class="no" aria-hidden="true"></span><span class="letra grad" aria-hidden="true">I</span><h3>I de Imediato.</h3><p>O lead novo recebe resposta em segundos, de dia, de noite e no fim de semana. A conversa já chega ao corretor com os dados da cotação coletados.</p></article>
+      <article class="viva-card rv" style="--i:2"><span class="no" aria-hidden="true"></span><span class="letra grad" aria-hidden="true">V</span><h3>V de Voltar.</h3><p>A cotação que parou é retomada em dias definidos, com uma pergunta aberta. O corretor só entra quando o cliente responde.</p></article>
+      <article class="viva-card rv" style="--i:3"><span class="no" aria-hidden="true"></span><span class="letra grad" aria-hidden="true">A</span><h3>A de Ampliar.</h3><p>A base dormida é chamada de volta e o cliente que tem um produto só recebe uma oferta de outro, de acordo com o perfil dele.</p></article>
+    </div>
+    <div class="infra rv"><p>Por baixo das quatro frentes fica a infraestrutura ponta a ponta: captação, CRM com processo de venda, a conversa de WhatsApp registrada e o funil visível para o dono. Você enxerga o que está parado, onde e há quanto tempo.</p></div>
+  </div>
+</section>
+
+<!-- MÁQUINA -->
+<section aria-labelledby="h-maq">
+  <div class="wrap">
+    <div class="tag rv">O que a máquina faz</div>
+    <h2 id="h-maq" class="wide rv">A máquina de vendas da sua corretora, por tipo de trabalho</h2>
+    <p class="rv" style="margin-top:28px">O Aruna OS cobre estes trabalhos, todos conectados ao seu CRM:</p>
+    <ol class="lista">
+      <li class="rv"><strong>Responder o lead.</strong><span>Atende em segundos, qualifica e passa ao corretor com o histórico.</span></li>
+      <li class="rv" style="--i:1"><strong>Acompanhar a cotação.</strong><span>Retoma quem pediu preço e sumiu, até virar conversa de verdade.</span></li>
+      <li class="rv"><strong>Nutrir quem ainda não está pronto.</strong><span>Mantém contato útil com o lead que quer comprar mais adiante.</span></li>
+      <li class="rv" style="--i:1"><strong>Fazer remarketing.</strong><span>Traz de volta quem visitou, perguntou e não fechou.</span></li>
+      <li class="rv"><strong>Trabalhar a renovação.</strong><span>Avisa, conduz e registra cada vencimento como comissão a receber.</span></li>
+      <li class="rv" style="--i:1"><strong>Oferecer o segundo produto.</strong><span>Venda cruzada para quem já é cliente, como receita de comissão.</span></li>
+    </ol>
+    <p class="fecho rv" style="font-size:clamp(20px,4.4vw,26px)">Tudo isso existe para uma coisa: mais comissão entrando. Nenhuma dessas rotinas fala pelo corretor sem revisão dele.</p>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section aria-labelledby="h-como">
+  <div class="wrap">
+    <div class="tag rv">Como funciona</div>
+    <h2 id="h-como" class="wide rv">Do diagnóstico ao primeiro resultado em etapas curtas</h2>
+    <ol class="passos">
+      <li class="rv"><strong>Etapa 1. Diagnóstico por mensagem.</strong><p>Você responde algumas perguntas no WhatsApp sobre ramos, volume de leads, carteira e como a corretora atende hoje. Com isso, calculamos onde a comissão escapa.</p></li>
+      <li class="rv"><strong>Etapa 2. Meta escrita.</strong><p>No primeiro dia, combinamos por escrito o que vai ser medido: tempo de primeira resposta e cotações retomadas, contra a linha de base da sua corretora.</p></li>
+      <li class="rv"><strong>Etapa 3. Implantação.</strong><p>Montamos a infraestrutura no seu canal e no seu CRM, com as regras e o jeito de falar da sua corretora. Você revisa antes de qualquer mensagem sair em seu nome.</p></li>
+      <li class="rv"><strong>Etapa 4. Medição em 60 dias.</strong><p>Acompanhamos os números combinados e conferimos juntos, ao fim dos 60 dias, o que foi atingido.</p></li>
+      <li class="rv"><strong>Etapa 5. Ampliação.</strong><p>Com o gargalo de venda nova resolvido, a infraestrutura avança para renovação, base dormida e venda cruzada, se fizer sentido para você.</p></li>
+    </ol>
+    <div class="cta-wrap rv"><a class="cta" href="https://wa.me/558598026295?text=Quero%20o%20diagn%C3%B3stico%20da%20minha%20corretora" target="_blank" rel="noopener">Quero o diagnóstico da minha corretora<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </div>
+</section>
+
+<!-- NÍVEIS -->
+<section aria-labelledby="h-niv">
+  <div class="wrap">
+    <div class="tag rv">Os três níveis</div>
+    <h2 id="h-niv" class="rv">Do tamanho da sua corretora</h2>
+    <p class="rv" style="margin-top:28px">Todos os níveis usam o mesmo método e a mesma infraestrutura. O que muda é a profundidade. Implantação a partir de R$ 7 mil, com o valor de cada nível confirmado depois do diagnóstico.</p>
+    <div class="niveis">
+      <article class="nivel rv"><h3>Fundação.</h3><p class="p1">Para quem quer começar pelo que mais dói: lead sem resposta e cotação parada.</p><p>Inclui captação (anúncio e página), CRM configurado com processo de venda, resposta imediata, retomada de cotação, nutrição básica e um playbook enxuto para a equipe. Para um número de WhatsApp. Serve bem a corretora pequena e familiar.</p></article>
+      <article class="nivel dest rv" style="--i:1"><h3 class="grad">Completa.</h3><p class="p1">O nível que atende a maioria das corretoras com equipe de vendas.</p><p>Tudo da Fundação, mais as quatro frentes do V.I.V.A., nutrição e remarketing de quem ainda não está pronto, playbook de vendas completo, oferta com venda cruzada, funil visível no CRM e relatório mensal.</p></article>
+      <article class="nivel rv" style="--i:2"><h3>Ampliada.</h3><p class="p1">Para carteira grande, base dormida ou mais de uma unidade.</p><p>Tudo da Completa, mais reativação estruturada da base como receita, painel de acompanhamento e revisão quinzenal.</p></article>
+    </div>
+    <div class="cobranca rv">
+      <h3>Como a cobrança funciona (vale para os três):</h3>
+      <p>A implantação parte de R$ 7 mil. A mensalidade só começa a valer quando a meta combinada no primeiro dia é atingida. Além disso, um honorário variável calculado sobre a receita que a máquina gerar. Não cobramos por hora e não cobramos por assistente. Os valores finais saem do seu diagnóstico, antes de qualquer contrato.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROVA -->
+<section class="prova" aria-labelledby="h-prova">
+  <div class="wrap">
+    <div class="tag rv">Prova</div>
+    <h2 id="h-prova" class="rv">O que já roda hoje</h2>
+    <ul>
+      <li class="rv">A Aruna implantou CRM e automação numa corretora parceira, que usa o sistema no dia a dia.</li>
+      <li class="rv" style="--i:1">Leads que chegam pelo Facebook entram direto no CRM de clientes nossos, sem digitação, já com a origem registrada.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- GARANTIA -->
+<section class="garantia" aria-labelledby="h-gar">
+  <div class="wrap">
+    <div class="tag rv">Garantia condicional</div>
+    <h2 id="h-gar" class="wide rv">Meta escrita, medida, e ajuste sem custo se a falha for nossa</h2>
+    <p class="rv" style="margin-top:28px">No primeiro dia, a meta de 60 dias vai para o papel, medida no WhatsApp e no CRM:</p>
+    <ul>
+      <li class="rv">lead respondido dentro do prazo combinado;</li>
+      <li class="rv" style="--i:1">cotação parada de volta na fila de retomada;</li>
+      <li class="rv" style="--i:2">renovação com data marcada.</li>
+    </ul>
+    <p class="fecho2 rv">Se a máquina não entregar isso por falha nossa, com os acessos liberados, corrigimos sem custo e a mensalidade não começa até cumprir.</p>
+    <p class="fecho2 rv">Não garantimos venda nem faturamento. Venda depende de produto, preço, do seu corretor e do mercado. O que garantimos é o que está sob o nosso controle: a máquina responder e retomar no prazo que combinamos.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section aria-labelledby="h-faq">
+  <div class="wrap">
+    <div class="tag rv">Perguntas</div>
+    <h2 id="h-faq" class="rv">Perguntas frequentes</h2>
+    <div class="faq rv">
+      <details><summary>Já uso uma ferramenta de IA gratuita no WhatsApp. Por que mudar?</summary><div class="resp"><p>Pode continuar usando, as duas podem conviver. A diferença é o alcance. Uma ferramenta de atendimento cuida de parte da conversa. O Aruna OS monta a infraestrutura de vendas da própria corretora: captação, CRM com processo, retomada de cotação, renovação e base, com as regras e o histórico dos seus clientes na sua conta. Pergunta que ajuda a decidir: onde fica o histórico do cliente, e de quem ele é?</p></div></details>
+      <details><summary>Meu sistema (multicálculo, gestão) já faz isso.</summary><div class="resp"><p>O sistema cota e organiza, e isso continua valendo. Falta, na maioria das corretoras, quem chame o cliente de volta quando a cotação parou e quem avise do vencimento a tempo. O Aruna OS se conecta ao que você já usa e cuida desse contato ativo. Pergunta: quem chama hoje o cliente cuja apólice vence daqui a 30 dias?</p></div></details>
+      <details><summary>E se a IA falar besteira com o meu cliente?</summary><div class="resp"><p>O escopo é fechado. A IA faz triagem, coleta dados de cotação e retoma conversa. Recomendação de cobertura e tudo que envolve sinistro vão para o corretor. E nenhuma mensagem fala em seu nome antes de você revisar o texto e as regras. Nas primeiras semanas, você acompanha as conversas de perto.</p></div></details>
+      <details><summary>E a LGPD? Dado de apólice e de saúde é sensível.</summary><div class="resp"><p>É, e tratamos assim: coleta mínima, registro de consentimento e os dados na conta da sua corretora, sem treinar modelo de terceiro. Não substituímos o seu jurídico e não prometemos conformidade jurídica. Enviamos o checklist do projeto para o seu jurídico validar antes de começar.</p></div></details>
+      <details><summary>Está caro.</summary><div class="resp"><p>Pense na comissão, não no custo. A implantação parte de R$ 7 mil, a mensalidade só começa quando a meta combinada for atingida e o restante é um honorário variável sobre a receita que a máquina gerar. Se não gerar, o variável não pesa. No diagnóstico, dimensionamos a sua carteira antes de falar de preço.</p></div></details>
+      <details><summary>Já contratei agência e não vendeu nada.</summary><div class="resp"><p>Muita agência entrega lead e para aí. Aqui o trabalho é a infraestrutura inteira: captação, resposta, CRM com processo, retomada, nutrição, renovação e playbook. A cobrança acompanha o resultado medido, e a meta está escrita desde o primeiro dia. Se quiser, mostre o que a agência anterior entregava e dizemos onde a venda travava.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="final" aria-labelledby="h-final">
+  <canvas id="grafo2" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <h2 id="h-final" class="rv">Sua próxima cotação já está esfriando.</h2>
+    <p class="rv" style="margin-top:28px">Em poucas mensagens no WhatsApp, calculamos onde a comissão da sua corretora está escapando e qual dos três níveis cabe no seu caso. Sem call, sem reunião, sem compromisso de contratar.</p>
+    <div class="cta-wrap rv"><a class="cta" href="https://wa.me/558598026295?text=Quero%20o%20diagn%C3%B3stico%20da%20minha%20corretora" target="_blank" rel="noopener">Quero o diagnóstico da minha corretora<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    <p class="transp rv">O Aruna OS não promete resultado de venda. Os números desta página são estimativas ou metas combinadas por escrito com cada corretora.</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav aria-label="Rodapé">
+      <a href="https://wa.me/558598026295">[ WhatsApp · 85 9802-6295 ]</a>
+      <a href="mailto:yanna@agenciaaruna.com">[ yanna@agenciaaruna.com ]</a>
+      <a href="/politica-de-privacidade/">[ política de privacidade ]</a>
+    </nav>
+    <p class="fim">© <span id="ano">2026</span> Agência Aruna · todos os direitos reservados</p>
+    <p class="legal">Agência Aruna · 58.265.276 YANNA BARBARA PONTES DAMASCENO · CNPJ 58.265.276/0001-81 · Fortaleza, CE · CEP 60743-250 · <a href="mailto:yanna@agenciaaruna.com" style="color:inherit">yanna@agenciaaruna.com</a></p>
+  </div>
+</footer>
+
+<div class="bar" id="bar">
+  <a class="cta" href="https://wa.me/558598026295?text=Quero%20o%20diagn%C3%B3stico%20da%20minha%20corretora" target="_blank" rel="noopener">Quero o diagnóstico da minha corretora</a>
+</div>
+
+<script>
+document.documentElement.classList.add('js');
+(function(){
+  var RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ano */
+  try{document.getElementById('ano').textContent=new Date().getFullYear()}catch(e){}
+
+  /* Pixel: Contact no clique de qualquer CTA */
+  document.querySelectorAll('a.cta').forEach(function(a){
+    a.addEventListener('click',function(){ try{ if(window.fbq) fbq('track','Contact'); }catch(e){} });
+  });
+
+  /* entrada por scroll */
+  var rv=[].slice.call(document.querySelectorAll('.rv'));
+  if(RM||!('IntersectionObserver' in window)){ rv.forEach(function(el){el.classList.add('in')}); }
+  else{
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+    },{rootMargin:'0px 0px -8% 0px',threshold:.08});
+    rv.forEach(function(el){io.observe(el)});
+    /* o hero aparece de imediato, em cascata */
+    requestAnimationFrame(function(){ document.querySelectorAll('.hero .rv').forEach(function(el){el.classList.add('in')}); });
+  }
+
+  /* barra fixa mobile: aparece depois do hero */
+  var bar=document.getElementById('bar'), hero=document.querySelector('.hero');
+  if(bar&&hero&&'IntersectionObserver' in window){
+    new IntersectionObserver(function(es){ bar.classList.toggle('on',!es[0].isIntersecting && es[0].boundingClientRect.top<0); },{threshold:0}).observe(hero);
+  }
+
+  /* grafo de nódulos conectados */
+  var COLORS=['232,72,90','255,107,53','245,166,35'];
+  function Grafo(canvas,density){
+    var ctx=canvas.getContext('2d'), W=0,H=0,dpr=1,nodes=[],vis=true,raf=0,t0=0;
+    function size(){
+      var r=canvas.parentElement.getBoundingClientRect();
+      dpr=Math.min(window.devicePixelRatio||1,2);
+      W=r.width;H=r.height;canvas.width=W*dpr;canvas.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+      var n=Math.round(Math.max(14,Math.min(46,W*H/density)));
+      nodes=[];
+      for(var i=0;i<n;i++){
+        nodes.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.22,vy:(Math.random()-.5)*.22,
+          r:1.6+Math.random()*2.4,c:COLORS[i%3],p:Math.random()*6.28});
+      }
+    }
+    function draw(t){
+      ctx.clearRect(0,0,W,H);
+      var D=Math.min(170,Math.max(110,W/6)), i,j,a,b;
+      for(i=0;i<nodes.length;i++){
+        a=nodes[i];
+        for(j=i+1;j<nodes.length;j++){
+          b=nodes[j];
+          var dx=a.x-b.x,dy=a.y-b.y,d=Math.sqrt(dx*dx+dy*dy);
+          if(d<D){
+            ctx.strokeStyle='rgba('+a.c+','+(0.34*(1-d/D)).toFixed(3)+')';
+            ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();
+          }
+        }
+      }
+      for(i=0;i<nodes.length;i++){
+        a=nodes[i];
+        var pulse=RM?1:(0.75+0.25*Math.sin(t/1400+a.p));
+        var g=ctx.createRadialGradient(a.x,a.y,0,a.x,a.y,a.r*5);
+        g.addColorStop(0,'rgba('+a.c+','+(0.5*pulse).toFixed(3)+')');g.addColorStop(1,'rgba('+a.c+',0)');
+        ctx.fillStyle=g;ctx.beginPath();ctx.arc(a.x,a.y,a.r*5,0,6.283);ctx.fill();
+        ctx.fillStyle='rgba('+a.c+','+(0.95*pulse).toFixed(3)+')';
+        ctx.beginPath();ctx.arc(a.x,a.y,a.r,0,6.283);ctx.fill();
+      }
+    }
+    function step(t){
+      raf=0; if(!vis||document.hidden) return;
+      for(var i=0;i<nodes.length;i++){
+        var n=nodes[i]; n.x+=n.vx;n.y+=n.vy;
+        if(n.x<-10)n.x=W+10; else if(n.x>W+10)n.x=-10;
+        if(n.y<-10)n.y=H+10; else if(n.y>H+10)n.y=-10;
+      }
+      draw(t); raf=requestAnimationFrame(step);
+    }
+    function start(){ if(RM){draw(0);return;} if(!raf) raf=requestAnimationFrame(step); }
+    size(); start();
+    var rt; window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){size();start();},150)});
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(es){ vis=es[0].isIntersecting; if(vis) start(); },{threshold:0}).observe(canvas);
+    }
+    document.addEventListener('visibilitychange',function(){ if(!document.hidden) start(); });
+  }
+  Grafo(document.getElementById('grafo'),9000);
+  Grafo(document.getElementById('grafo2'),14000);
+})();
+</script>
+</body>
+</html>
