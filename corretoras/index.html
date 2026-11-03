@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Aruna OS para Corretoras: diagnóstico da sua corretora</title>
-<meta name="description" content="O Aruna OS responde o lead na hora, traz de volta a cotação que parou e lembra cada renovação a tempo. Diagnóstico por mensagem, no WhatsApp. Para corretoras de saúde, consórcio e vida.">
+<meta name="description" content="Infraestrutura de vendas com IA para corretoras de seguro, saúde e consórcio: lead respondido, cotação retomada, renovação com data marcada.">
 <link rel="canonical" href="https://agenciaaruna.com/corretoras/">
 <meta name="theme-color" content="#0E0E1C">
 
@@ -12,8 +12,8 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:url" content="https://agenciaaruna.com/corretoras/">
 <meta property="og:site_name" content="Agência Aruna">
-<meta property="og:title" content="Aruna OS para Corretoras: diagnóstico da sua corretora">
-<meta property="og:description" content="Responde o lead na hora, retoma a cotação que parou e lembra cada renovação a tempo. Diagnóstico por mensagem, sem call.">
+<meta property="og:title" content="Pagou pelo lead, a cotação esfriou.">
+<meta property="og:description" content="Infraestrutura de vendas com IA para corretoras de seguro, saúde e consórcio: lead respondido, cotação retomada, renovação com data marcada.">
 <meta property="og:image" content="https://agenciaaruna.com/img/og-aruna-os.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="1200">
@@ -38,8 +38,7 @@ fbq('init','805389752641637'); fbq('track','PageView');
  * paper: oklch(17% 0.03 285) · accent: oklch(69% 0.19 40) · display: Inter Tight · body: Inter Tight · hero: Stage · nav: edge wordmark · footer: mast · signature: a lead answered at 23:47, built in the hero, with the quote data handed to the broker
  * axes: dark/grotesk/warm · posture: Stage · contrast: pass · fold: pass · imagery: product built (no capture possible) · v2.0.0 */
 /* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V4 · weakest: S, the four fronts could be any CRM page, so three of them are shown as the product doing the job (conversation, stalled quote, renewal list) and the fourth as the broker's review queue */
-/* Hallmark · dropped #h-dor, #h-custo, #h-maq, #h-como, #h-niv, #h-prova, #h-gar, #h-faq sections and the R$ 134 mil and R$ 50 estimates · the owner asked for 450 words and sections with mass; the estimates were unvalidated figures (46a) and the three price tiers, the proof section and the FAQ were text lists */
-/* Hallmark · reworded the VIVA section and the hero sentence to "O Aruna OS roda o Método VIVA na sua corretora." · 58 caps the hero at one sentence of twelve words */
+/* Hallmark · waive 58 · telas acima de 80 palavras e 450 no total porque os nove blocos da landing somam cerca de 1.500 · copy do método Accelera 360 por decisão da dona */
 :root {
   --space-3xs: 2px; --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 144px;
   --text-xs: 0.8125rem; --text-sm: 0.875rem; --text-md: 1rem; --text-lg: 1.25rem; --text-xl: 1.5625rem; --text-2xl: 1.953rem; --text-3xl: 2.441rem;
@@ -117,10 +116,13 @@ strong { font-weight: 600; color: var(--color-ink); }
 .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(to right, var(--color-scrim) 0%, var(--color-scrim-mid) 46%, var(--color-scrim-0) 100%); }
 .hero .container { width: 100%; }
 .hero .grid { align-items: center; }
-.hero .copy { grid-column: 1 / span 5; gap: var(--space-xl); }
+.hero .copy { grid-column: 1 / span 5; gap: var(--space-xl); align-self: stretch; }
 .hero h1 { font-size: var(--text-display); max-width: 14ch; line-height: 1.02; letter-spacing: -0.03em; }
+.hero .micro { font-size: var(--text-md); }
 .hero .lead { max-width: 30ch; color: var(--color-ink); }
-.hero .chat { grid-column: 6 / span 7; min-height: 600px; }
+.hero .chat { grid-column: 6 / span 7; grid-row: 1; min-height: 600px; }
+.hero .copy { grid-row: 1; }
+.hero-note { grid-column: 1 / span 5; grid-row: 2; display: grid; gap: var(--space-sm); margin-top: calc(var(--space-xl) * -1); }
 .hero .chat-body { gap: var(--space-md); padding: var(--space-xl) var(--space-lg); }
 .hero .msg { font-size: var(--text-lg); max-width: 30ch; }
 
@@ -151,7 +153,7 @@ strong { font-weight: 600; color: var(--color-ink); }
 .viva li:nth-child(4)::before { border-color: var(--color-amber); }
 .letra { display: block; font-family: var(--font-display); font-weight: 600; font-size: var(--text-letter); line-height: 0.85; letter-spacing: -0.05em; color: var(--color-ink); margin-bottom: var(--space-sm); }
 .viva h3 { color: var(--color-ink); }
-.viva p { max-width: 28ch; font-size: var(--text-lg); line-height: 1.4; }
+.viva p { max-width: 46ch; font-size: var(--text-lg); line-height: 1.4; }
 
 .split .chat { grid-column: 1 / span 6; grid-row: 1; min-height: 440px; grid-template-rows: auto 1fr auto; }
 .split .chat-body { align-content: center; }
@@ -180,17 +182,67 @@ td.fim { color: var(--color-amber); }
 .revisao li.agora { color: var(--color-ink); font-weight: 600; }
 .revisao li.agora::before { border-color: var(--color-coral); background: var(--color-paper-2); }
 
-.oferta h2 { max-width: 20ch; }
-.oferta .fig { display: grid; gap: var(--space-lg); }
-.oferta .linhas { margin-top: var(--space-3xl); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: var(--gap-columns); }
-.figure { display: block; white-space: nowrap; font-family: var(--font-display); font-weight: 600; font-size: clamp(3.25rem, 15vw, 15rem); font-variant-numeric: tabular-nums; line-height: 0.9; letter-spacing: -0.04em; color: var(--color-amber); }
-.figure-cap { margin-top: var(--space-sm); font-size: var(--text-md); color: var(--color-ink-2); }
-.linhas li { display: grid; align-content: start; gap: var(--space-xs); padding-top: var(--space-lg); border-top: var(--rule-hair) solid var(--color-rule); }
-.linhas strong { font-size: var(--text-title); letter-spacing: var(--tracking-display); line-height: 1.2; }
-.linhas p { font-size: var(--text-lg); line-height: 1.4; }
-.garantia { margin-top: var(--space-2xl); padding-top: var(--space-xl); border-top: var(--rule-hair) solid var(--color-rule); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); row-gap: var(--space-sm); align-items: baseline; }
-.garantia h3 { grid-column: 1 / span 6; font-size: var(--text-xl); max-width: 22ch; }
-.garantia p { grid-column: 8 / span 5; font-size: var(--text-lg); color: var(--color-ink-2); }
+.dor-top, .cons-top { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); row-gap: var(--space-md); align-items: end; }
+.dor-top h2 { grid-column: 1 / span 7; }
+.dores { margin-top: var(--space-2xl); counter-reset: dor; }
+.dores li { counter-increment: dor; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); row-gap: var(--space-xs); padding-block: var(--space-xl); border-top: var(--rule-hair) solid var(--color-rule); }
+.dores li::before { content: counter(dor, decimal-leading-zero); grid-column: 1 / span 1; font-family: var(--font-outlier); font-size: var(--text-lg); color: var(--color-coral); }
+.dores h3 { grid-column: 2 / span 4; }
+.dores p { grid-column: 7 / span 6; font-size: var(--text-lg); line-height: 1.45; }
+.fecho { margin-top: var(--space-xl); padding-top: var(--space-xl); border-top: var(--rule-hair) solid var(--color-rule); font-family: var(--font-display); font-weight: 600; font-size: var(--text-2xl); line-height: 1.15; letter-spacing: var(--tracking-display); color: var(--color-ink); max-width: 28ch; text-wrap: balance; }
+.cons { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); row-gap: var(--space-xl); }
+.cons h2 { grid-column: 1 / span 5; align-self: start; }
+.cons .txt { grid-column: 6 / span 7; display: grid; gap: var(--space-lg); }
+.cons .txt p { font-size: var(--text-xl); line-height: 1.5; }
+.cons .txt p:last-child { color: var(--color-ink); border-left: 2px solid var(--color-coral); padding-left: var(--space-lg); }
+.mec-intro { margin-top: var(--space-xl); font-size: var(--text-lead); line-height: 1.45; max-width: 60ch; color: var(--color-ink); }
+.viva-tit { margin-top: var(--space-2xl); font-size: var(--text-title); font-weight: 600; color: var(--color-ink); letter-spacing: var(--tracking-display); }
+.viva h3 .letra { margin-bottom: var(--space-2xs); }
+.viva h3 { display: grid; }
+.viva h3 .de { font-size: var(--text-title); }
+.viva p { font-size: var(--text-md); max-width: 46ch; }
+.mec-notas { margin-top: var(--space-3xl); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); row-gap: var(--space-xl); }
+.mec-notas > div { grid-column: span 6; display: grid; gap: var(--space-xs); align-content: start; padding-top: var(--space-lg); border-top: var(--rule-hair) solid var(--color-rule); }
+.mec-notas h3 { font-size: var(--text-xl); }
+.mec-notas p { font-size: var(--text-md); line-height: 1.5; }
+.mec .cta { margin-top: var(--space-2xl); }
+.prova { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); row-gap: var(--space-xl); }
+.prova h2 { grid-column: 1 / span 5; }
+.prova .txt { grid-column: 6 / span 7; display: grid; gap: var(--space-lg); }
+.prova .txt > p { font-size: var(--text-lead); line-height: 1.45; }
+.fatos li { padding-block: var(--space-lg); border-top: var(--rule-hair) solid var(--color-rule); font-size: var(--text-xl); line-height: 1.4; color: var(--color-ink); display: grid; grid-template-columns: 18px minmax(0, 1fr); column-gap: var(--space-md); align-items: baseline; }
+.fatos li::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--grad-cta); }
+.fatos li:last-child { border-bottom: var(--rule-hair) solid var(--color-rule); }
+.stack-top { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); }
+.stack-top h2 { grid-column: 1 / span 8; }
+.stack { margin-top: var(--space-2xl); counter-reset: st; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--gap-columns); }
+.stack li { counter-increment: st; display: grid; grid-template-columns: 3rem minmax(0, 1fr); column-gap: var(--space-sm); row-gap: var(--space-2xs); padding-block: var(--space-lg); border-top: var(--rule-hair) solid var(--color-rule); }
+.stack li::before { content: counter(st, decimal-leading-zero); grid-row: span 2; font-family: var(--font-outlier); font-size: var(--text-md); color: var(--color-amber); padding-top: var(--space-2xs); }
+.stack strong { font-size: var(--text-title); letter-spacing: var(--tracking-display); line-height: 1.2; }
+.stack p { font-size: var(--text-md); line-height: 1.5; }
+.stack li:last-child { grid-column: 1 / -1; }
+.stack-fecho { margin-top: var(--space-xl); font-size: var(--text-lead); line-height: 1.45; max-width: 60ch; color: var(--color-ink); }
+.faq-top h2 { max-width: 40ch; font-size: var(--text-display-s); }
+.faq { margin-top: var(--space-2xl); border-bottom: var(--rule-hair) solid var(--color-rule); }
+.faq details { border-top: var(--rule-hair) solid var(--color-rule); }
+.faq summary { display: flex; justify-content: space-between; align-items: center; gap: var(--space-lg); min-height: 64px; padding-block: var(--space-md); cursor: pointer; list-style: none; font-family: var(--font-display); font-weight: 600; font-size: var(--text-2xl); line-height: 1.2; letter-spacing: var(--tracking-display); color: var(--color-ink); }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; flex: none; font-family: var(--font-outlier); font-size: var(--text-xl); color: var(--color-coral); transition: transform var(--dur-short) var(--ease-out); }
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq details > p { padding-bottom: var(--space-lg); font-size: var(--text-xl); line-height: 1.5; max-width: 75ch; }
+.gar { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); row-gap: var(--space-xl); }
+.gar h2 { grid-column: 1 / span 6; align-self: start; }
+.gar .txt { grid-column: 7 / span 6; display: grid; gap: var(--space-lg); }
+.gar .txt p { font-size: var(--text-lg); line-height: 1.5; }
+.criterios { counter-reset: cr; }
+.criterios li { counter-increment: cr; padding-block: var(--space-md); border-top: var(--rule-hair) solid var(--color-rule); font-size: var(--text-xl); line-height: 1.3; color: var(--color-ink); font-weight: 600; letter-spacing: var(--tracking-display); }
+.criterios li::before { content: counter(cr, decimal-leading-zero); font-family: var(--font-outlier); font-size: var(--text-md); font-weight: 400; color: var(--color-amber); }
+.criterios { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--gap-columns); }
+.criterios li { display: grid; align-content: start; gap: var(--space-sm); padding-block: var(--space-lg); min-height: 180px; font-size: var(--text-2xl); line-height: 1.15; }
+.criterios li:last-child { border-bottom: 0; }
+.gar .txt h3 { font-size: var(--text-xl); margin-top: var(--space-sm); }
+.ps { font-size: var(--text-sm); max-width: 52ch; }
+.prova-min { font-size: var(--text-md); color: var(--color-ink-2); max-width: 44ch; }
 
 .final { position: relative; isolation: isolate; padding-block: var(--section-gap-l); }
 #grafo2 { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -2; opacity: 0.55; }
@@ -218,12 +270,17 @@ footer { border-top: var(--rule-hair) solid var(--color-rule); padding-block: va
 
 @media (max-width: 60rem) {
   :root { --gutter: 24px; --section-gap-s: 80px; --section-gap: 96px; --section-gap-l: 120px; }
-  .hero .copy, .hero .chat, .split .chat, .split .copy, .split.rev .copy, .split.rev .chat, .metodo-top h2, .metodo-top .lead, .tabela-head h2, .tabela-head .lead, .oferta .linhas, .garantia h3, .garantia p, .foot-row nav, .foot-legal { grid-column: 1 / -1; grid-row: auto; }
+  .hero-note, .hero .copy, .hero .chat, .split .chat, .split .copy, .split.rev .copy, .split.rev .chat, .metodo-top h2, .metodo-top .lead, .tabela-head h2, .tabela-head .lead, .oferta .linhas, .dor-top h2, .dores h3, .dores p, .cons h2, .cons .txt, .prova h2, .prova .txt, .stack-top h2, .gar h2, .gar .txt, .criterios, .foot-row nav, .foot-legal { grid-column: 1 / -1; grid-row: auto; }
   .hero { min-height: auto; padding-top: 104px; }
+  .hero-note { margin-top: 0; }
   .hero .chat { min-height: 0; }
   .hero .copy { gap: var(--space-lg); }
   .viva { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: var(--space-2xl); margin-top: var(--space-2xl); }
-  .oferta .linhas { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: var(--space-lg); }
+  .dores li::before { grid-column: 1 / -1; }
+  .mec-notas > div { grid-column: 1 / -1; }
+  .stack { grid-template-columns: minmax(0, 1fr); }
+  .criterios { grid-template-columns: minmax(0, 1fr); }
+  .criterios li { min-height: 0; font-size: var(--text-xl); }
   .viva::before { display: none; }
   .viva li { border-top: var(--rule-hair) solid var(--color-rule); }
   .viva li::before { top: -8px; }
@@ -237,18 +294,11 @@ footer { border-top: var(--rule-hair) solid var(--color-rule); padding-block: va
   .chat-head, .chat-body, .ficha, .revisao { padding: var(--space-md); }
   .ficha dl { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .viva { grid-template-columns: minmax(0, 1fr); row-gap: var(--space-lg); }
-  .viva li { grid-template-columns: 4rem minmax(0, 1fr); column-gap: var(--space-md); padding-top: var(--space-lg); }
-  .viva .letra { grid-row: span 2; font-size: 3.5rem; margin: 0; }
+  .viva li { padding-top: var(--space-lg); }
+  .viva .letra { font-size: 4rem; }
   .viva p { max-width: none; }
-  .oferta .linhas { grid-template-columns: minmax(0, 1fr); row-gap: var(--space-lg); }
-  table, thead, tbody, tr, th, td { display: block; }
-  thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
-  tbody tr { padding-block: var(--space-md); border-top: var(--rule-hair) solid var(--color-rule); }
-  th, td { padding: 0; border: 0; }
-  tbody tr:last-child td, tbody tr:last-child th { border: 0; }
-  td { font-size: var(--text-md); }
-  caption { display: block; width: 100%; }
-  .oferta .linhas { margin-top: var(--space-xl); }
+  .cta { white-space: normal; text-align: center; padding-block: var(--space-sm); }
+  .faq summary { font-size: var(--text-lg); }
 }
 @media (max-width: 22rem) { .cta { font-size: 0.875rem; padding: 0 var(--space-sm); } }
 @media (prefers-reduced-motion: reduce) {
@@ -275,7 +325,7 @@ footer { border-top: var(--rule-hair) solid var(--color-rule); padding-block: va
     <div class="grid">
       <div class="copy">
         <h1 id="h-hero" class="rv">Pagou pelo lead, a cotação esfriou.</h1>
-        <p class="lead rv" style="--i:1">O Aruna OS roda o Método VIVA na sua corretora.</p>
+        <p class="lead rv" style="--i:1">Infraestrutura de vendas com IA para corretoras de seguro, saúde e consórcio, rodando o Método VIVA.</p>
         <a class="cta rv" style="--i:2" href="https://wa.me/558598026295?text=Quero%20o%20diagn%C3%B3stico%20da%20minha%20corretora" target="_blank" rel="noopener">Quero o diagnóstico da minha corretora</a>
       </div>
       <figure class="chat" data-slot="conversa" data-kind="product" data-alt="Captura de uma conversa real de WhatsApp em que um lead novo é respondido em segundos e chega ao corretor com os dados da cotação" role="group" aria-label="Exemplo de conversa de WhatsApp" style="margin:0">
@@ -295,98 +345,120 @@ footer { border-top: var(--rule-hair) solid var(--color-rule); padding-block: va
           </dl>
         </div>
       </figure>
+      <div class="hero-note">
+        <p class="micro rv" style="--i:3">O diagnóstico é por mensagem, no WhatsApp. Sem call, sem reunião marcada.</p>
+        <p class="prova-min rv" style="--i:3">Já roda em operação real: na própria Aruna e em uma corretora parceira.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="sec gap-m" aria-labelledby="h-metodo">
+<section class="sec gap-m" aria-labelledby="h-dor">
+  <div class="container">
+    <div class="dor-top"><h2 id="h-dor" class="rv">Você se reconhece em pelo menos uma destas?</h2></div>
+    <ol class="dores">
+      <li class="rv"><h3>A resposta que sai tarde.</h3><p>O cliente pede preço de manhã. Você está com outro atendimento, o time está no telefone, e a resposta sai à tarde ou no dia seguinte. Quando sai, ele já conversou com outra corretora.</p></li>
+      <li class="rv"><h3>A cotação que ninguém retomou.</h3><p>A cotação foi na terça. O cliente sumiu na quarta. Na quinta ninguém perguntou se ele ainda quer, porque ninguém anotou que era para perguntar.</p></li>
+      <li class="rv"><h3>A renovação que depende de memória.</h3><p>A apólice vence na sexta e quem lembra é uma pessoa, justo na semana mais corrida. Quando você percebe, o cliente já recebeu proposta de outro corretor.</p></li>
+    </ol>
+    <p class="fecho rv">Nada disso é falta de esforço. É falta de uma rotina que não dependa de lembrar.</p>
+  </div>
+</section>
+
+<section class="sec band gap-m" aria-labelledby="h-cons">
+  <div class="container cons">
+    <h2 id="h-cons" class="rv">Em 12 meses assim, o que fica pelo caminho</h2>
+    <div class="txt">
+      <p class="rv">Cada lead atrasado é dinheiro de anúncio, indicação ou tempo seu que já foi gasto e não volta. Em um ano, isso se repete todo mês, com cada lead novo que pediu preço e esperou.</p>
+      <p class="rv">A carteira também cobra. Cada apólice passa pelo vencimento uma vez por ano. Em 12 meses, toda a sua base já passou pela porta de saída pelo menos uma vez, com ou sem alguém por perto para conduzir a renovação.</p>
+      <p class="rv">E o mercado está parado no mesmo lugar. Olhamos 20 corretoras de saúde, consórcio e vida nos sites e anúncios que conseguimos ler: nenhuma fala de renovação ou de carteira. Quem organizar isso primeiro ocupa um espaço que está vazio.</p>
+      <p class="rv">Não existe número mágico aqui, e não vamos inventar um. A perda da sua corretora tem um tamanho real, que se calcula com os seus dados. É por aí que o diagnóstico começa.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec gap-m mec" aria-labelledby="h-metodo">
   <div class="container">
     <div class="metodo-top">
-      <h2 id="h-metodo" class="rv">O Método VIVA, em quatro frentes</h2>
-      <p class="lead rv" style="--i:1">Infraestrutura de vendas com IA para corretoras de seguro, saúde e consórcio.</p>
+      <h2 id="h-metodo" class="rv">Toda cotação com resposta marcada. Todo vencimento com data marcada.</h2>
     </div>
+    <p class="mec-intro rv">Você ganha uma rotina de vendas que não depende de ninguém lembrar. Quem pede preço é respondido na hora, quem parou é retomado no dia certo, e cada renovação chega à sua mesa com antecedência. O corretor continua fazendo o que só ele faz: cotar, negociar e fechar.</p>
+    <p class="viva-tit rv">Como a Aruna chega nisso: Método VIVA, quatro frentes.</p>
     <ol class="viva">
-      <li class="rv"><span class="letra" aria-hidden="true">V</span><h3>Vencimentos</h3><p>Renovação conduzida com antecedência. No consórcio, a recompra.</p></li>
-      <li class="rv" style="--i:1"><span class="letra" aria-hidden="true">I</span><h3>Imediato</h3><p>Lead respondido em segundos, a qualquer hora.</p></li>
-      <li class="rv" style="--i:2"><span class="letra" aria-hidden="true">V</span><h3>Voltar</h3><p>Cotação parada retomada em dias definidos.</p></li>
-      <li class="rv" style="--i:3"><span class="letra" aria-hidden="true">A</span><h3>Ampliar</h3><p>Base dormida e venda cruzada.</p></li>
+      <li class="rv"><h3><span class="letra">V</span><span class="de">de Vencimentos</span></h3><p>Cada renovação é conduzida com antecedência, por data, para a comissão da carteira não ficar na memória de uma pessoa. No consórcio, a mesma lógica vale para o momento de recompra, definido com você na implantação.</p></li>
+      <li class="rv" style="--i:1"><h3><span class="letra">I</span><span class="de">de Imediato</span></h3><p>O lead novo recebe resposta em segundos, de dia, de noite e no fim de semana. A conversa chega ao corretor com os dados da cotação já coletados.</p></li>
+      <li class="rv" style="--i:2"><h3><span class="letra">V</span><span class="de">de Voltar</span></h3><p>A cotação parada é retomada em dias definidos, com uma pergunta aberta. O corretor entra quando o cliente responde.</p></li>
+      <li class="rv" style="--i:3"><h3><span class="letra">A</span><span class="de">de Ampliar</span></h3><p>A base dormida é chamada de volta, e quem tem um produto recebe a oferta de outro, conforme o perfil.</p></li>
     </ol>
-  </div>
-</section>
-
-<section class="sec band split" aria-labelledby="h-voltar">
-  <div class="container grid">
-    <div class="copy">
-      <h2 id="h-voltar" class="rv">A cotação parou. Ninguém perguntou.</h2>
-      <p class="lead rv" style="--i:1">No dia definido, o Aruna OS retoma com uma pergunta aberta. O corretor entra quando o cliente responde.</p>
+    <div class="mec-notas">
+      <div class="rv"><h3>Por baixo do método</h3><p>O Aruna OS monta a infraestrutura de ponta a ponta: captação, CRM com processo de venda, conversa de WhatsApp registrada e funil visível para o dono. Você vê o que está parado, onde e há quanto tempo.</p></div>
+      <div class="rv" style="--i:1"><h3>Quem fala pelo corretor</h3><p>A IA só fala em nome do corretor depois que ele revisa o texto e as regras. Recomendação de cobertura e sinistro ficam com o corretor.</p></div>
     </div>
-    <figure class="chat" data-slot="cotacao" data-kind="product" data-alt="Captura de uma conversa real em que uma cotação parada é retomada com uma pergunta aberta" role="group" aria-label="Exemplo de cotação retomada" style="margin:0">
-      <div class="chat-head"><strong>Cotação de saúde</strong><span>WhatsApp</span></div>
-      <div class="chat-body">
-        <p class="note rv">Cotação enviada na terça</p>
-        <p class="msg out rv" style="--i:1">Bom dia, Marina. O que falta para você decidir?<time datetime="10:02">qui 10:02</time></p>
-        <p class="msg rv" style="--i:2">Saber se inclui a clínica do meu pai.<time datetime="10:19">qui 10:19</time></p>
-        <p class="msg out rv" style="--i:3">Passei para o corretor. Ele responde por aqui.<time datetime="10:19">qui 10:19</time></p>
-      </div>
-    </figure>
+    <a class="cta rv" href="https://wa.me/558598026295?text=Quero%20o%20diagn%C3%B3stico%20da%20minha%20corretora" target="_blank" rel="noopener">Quero o diagnóstico da minha corretora</a>
   </div>
 </section>
 
-<section class="sec gap-l" aria-labelledby="h-venc">
+<section class="sec band gap-m" aria-labelledby="h-prova">
+  <div class="container prova">
+    <h2 id="h-prova" class="rv">O que já está rodando, sem enfeite</h2>
+    <div class="txt">
+      <p class="rv">Não há depoimento de corretora nesta página, e não vamos fabricar um. O que podemos afirmar é o que existe hoje:</p>
+      <ul class="fatos rv" style="--i:1">
+        <li>A própria Aruna opera com o Aruna OS no dia a dia.</li>
+        <li>Uma corretora parceira tem CRM e automação em operação, implantados pela Aruna.</li>
+        <li>Clientes de uma agência parceira têm o lead do Facebook caindo direto no CRM e na planilha, sem digitação.</li>
+      </ul>
+      <p class="micro rv" style="--i:2">Nome de cliente e resultado de venda só entram aqui com autorização e com número medido. Até lá, o que você tem é o compromisso abaixo: a meta escrita no primeiro dia, para você conferir.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec gap-m" aria-labelledby="h-stack">
   <div class="container">
-    <div class="tabela-head">
-      <h2 id="h-venc" class="rv">A renovação vence. Quem lembra?</h2>
-      <p class="lead rv" style="--i:1">Cada vencimento entra na rotina com data marcada e antecedência.</p>
-    </div>
-    <table class="rv" style="--i:1">
-      <caption>Vencimentos de dezembro, exemplo</caption>
-      <thead><tr><th scope="col">Cliente</th><th scope="col">Produto</th><th scope="col">Vence</th><th scope="col">Etapa</th></tr></thead>
-      <tbody>
-        <tr><th scope="row">Ana B.</th><td>Saúde familiar</td><td class="mono">04 dez</td><td class="fim">Renovada</td></tr>
-        <tr><th scope="row">Carlos M.</th><td>Seguro auto</td><td class="mono">09 dez</td><td>Em conversa</td></tr>
-        <tr><th scope="row">Oficina Sol</th><td>Saúde empresarial</td><td class="mono">15 dez</td><td>Aviso enviado</td></tr>
-        <tr><th scope="row">Helena S.</th><td>Seguro de vida</td><td class="mono">18 dez</td><td>Aviso agendado</td></tr>
-        <tr><th scope="row">Paulo T.</th><td>Consórcio</td><td class="mono">22 dez</td><td>Hora da recompra</td></tr>
-      </tbody>
-    </table>
+    <div class="stack-top"><h2 id="h-stack" class="rv">O que a Aruna monta e opera para você</h2></div>
+    <ol class="stack">
+      <li class="rv"><strong>Captação.</strong><p>Anúncio e página para o lead chegar, com a origem registrada.</p></li>
+      <li class="rv" style="--i:1"><strong>CRM com processo de venda.</strong><p>Montado ou conectado ao que você já usa, com cada etapa visível.</p></li>
+      <li class="rv"><strong>Resposta imediata ao lead.</strong><p>Atendimento em segundos, com triagem e passagem ao corretor.</p></li>
+      <li class="rv" style="--i:1"><strong>Retomada de cotação.</strong><p>Cadência em dias definidos até virar conversa ou recusa.</p></li>
+      <li class="rv"><strong>Nutrição e remarketing.</strong><p>Contato útil com quem ainda não está pronto para comprar.</p></li>
+      <li class="rv" style="--i:1"><strong>Condução de renovação.</strong><p>Aviso e acompanhamento antes de cada vencimento, registrados no CRM.</p></li>
+      <li class="rv"><strong>Reativação da base e venda cruzada.</strong><p>Quem já comprou volta à conversa, com oferta de um segundo produto.</p></li>
+      <li class="rv" style="--i:1"><strong>Roteiro de vendas e oferta.</strong><p>O jeito de falar da sua corretora, escrito e aplicado.</p></li>
+      <li class="rv"><strong>Gestão contínua.</strong><p>A Aruna hospeda, mantém, otimiza todo mês e entrega relatório de leads respondidos, cotações retomadas e renovações trabalhadas.</p></li>
+    </ol>
+    <p class="stack-fecho rv">Quanto disso a sua corretora precisa depende da carteira e do volume. O escopo e o valor saem do diagnóstico, antes de qualquer contrato.</p>
   </div>
 </section>
 
-<section class="sec band split rev" aria-labelledby="h-ampliar">
-  <div class="container grid">
-    <div class="copy">
-      <h2 id="h-ampliar" class="rv">A base dormida já foi paga.</h2>
-      <p class="lead rv" style="--i:1">O Aruna OS chama de volta e oferece o segundo produto. A IA só fala pelo corretor depois que ele revisa.</p>
-    </div>
-    <figure class="chat" data-slot="revisao" data-kind="product" data-alt="Captura da fila de revisão do corretor com um rascunho de venda cruzada" role="group" aria-label="Exemplo de rascunho em revisão" style="margin:0">
-      <div class="chat-head"><strong>Rascunho para Carlos M.</strong><span>Seguro auto</span></div>
-      <div class="chat-body">
-        <p class="msg out draft rv" style="--i:1">Carlos, seu seguro auto renova em dezembro. Como está a proteção da casa?</p>
-      </div>
-      <ol class="revisao rv" style="--i:2">
-        <li class="feito">Rascunho da IA</li>
-        <li class="agora">Revisão do corretor</li>
-        <li>Envio</li>
-      </ol>
-    </figure>
-  </div>
-</section>
-
-<section class="sec band-3 gap-m oferta" aria-labelledby="h-oferta">
+<section class="sec band gap-m" aria-labelledby="h-faq">
   <div class="container">
-    <div class="fig">
-        <h2 id="h-oferta" class="rv">Primeiro a meta, depois a mensalidade.</h2>
-        <div class="rv" style="--i:1"><span class="figure">R$ 7 mil</span><p class="figure-cap">implantação, a partir de</p></div>
-      </div>
-      <ol class="linhas">
-        <li class="rv"><strong>Dia 1</strong><p>A meta fica escrita.</p></li>
-        <li class="rv" style="--i:1"><strong>Implantação</strong><p>Montada no seu WhatsApp e no seu CRM.</p></li>
-        <li class="rv" style="--i:2"><strong>Dia 60</strong><p>A meta é conferida junto com você.</p></li>
-        <li class="rv" style="--i:3"><strong>Mensalidade</strong><p>Só começa depois do gatilho de resultado combinado. Mais honorário variável sobre a receita gerada.</p></li>
-      </ol>
-    <div class="garantia rv">
-      <h3>Se a falha for nossa, o ajuste é sem custo.</h3>
-      <p>Não garantimos venda nem faturamento.</p>
+    <div class="faq-top"><h2 id="h-faq" class="rv">Perguntas que a gente ouve</h2></div>
+    <div class="faq">
+      <details><summary>Já uso uma ferramenta de IA ou um sistema de gestão que faz isso.</summary><p>Pode continuar usando. Ferramenta de atendimento cuida de parte da conversa, e o sistema de gestão cota e organiza. Na maioria das corretoras falta quem chame o cliente de volta quando a cotação parou e quem avise do vencimento a tempo. Aqui isso se conecta ao que você usa. Quem chama hoje o cliente cuja apólice vence em 30 dias?</p></details>
+      <details><summary>E se a IA falar besteira com o meu cliente?</summary><p>O escopo é fechado: triagem, coleta de dados da cotação e retomada de conversa. Nenhuma mensagem sai em seu nome antes de você revisar o texto e as regras. Cobertura e sinistro ficam com o corretor.</p></details>
+      <details><summary>E a LGPD? Dado de apólice e de saúde é sensível.</summary><p>É, e tratamos assim: coleta mínima, consentimento registrado e dados na conta da sua corretora. Não substituímos o seu jurídico nem prometemos conformidade legal. O checklist do projeto vai para o seu jurídico validar antes de começar.</p></details>
+      <details><summary>Quanto custa, e como é a cobrança?</summary><p>Depende do escopo e do tamanho da sua carteira, então o valor não está nesta página. Ele sai do diagnóstico, com os seus números na mesa e antes de qualquer contrato. Uma regra já vale: a mensalidade só começa depois que o combinado no primeiro dia for cumprido.</p></details>
+      <details><summary>Já contratei agência e não vendeu nada.</summary><p>Muita agência entrega o lead e para aí. Aqui o trabalho vai até a resposta, a retomada e a renovação, com a meta escrita desde o primeiro dia. Se quiser, mostre o que a agência anterior entregava e dizemos onde a venda travava.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec band-3 gap-m" aria-labelledby="h-gar">
+  <div class="container gar">
+    <h2 id="h-gar" class="rv">Garantia operacional de 60 dias, por escrito</h2>
+    <div class="txt">
+      <p class="rv">No primeiro dia, a meta vai para o papel. Em até 60 dias, a máquina precisa estar entregando três coisas:</p>
+    </div>
+    <ol class="criterios rv" style="--i:1">
+      <li>Lead respondido no tempo combinado.</li>
+      <li>Cotação parada voltando para a fila de retomada.</li>
+      <li>Renovação com data marcada.</li>
+    </ol>
+    <div class="txt">
+      <p class="rv">Se alguma falhar, com os acessos e os dados liberados por você, a Aruna corrige sem custo, e a mensalidade segue sem começar até o critério ser cumprido.</p>
+      <div class="rv"><h3>O que não garantimos</h3><p>Venda, faturamento, número de apólices ou retorno sobre o investimento. Venda depende do produto, do preço, do seu corretor e do mercado. A garantia cobre o que está sob o nosso controle.</p></div>
+      <div class="rv"><h3>Sobre prazo</h3><p>Não há contagem regressiva nem vaga fingida. A espera tem um custo real: cada semana sem rotina é mais um lead que pediu preço e esfriou, e mais um vencimento sem data marcada.</p></div>
     </div>
   </div>
 </section>
@@ -396,9 +468,9 @@ footer { border-top: var(--rule-hair) solid var(--color-rule); padding-block: va
   <div class="container">
     <div class="copy">
       <h2 id="h-final" class="rv">Sua próxima cotação já está esfriando.</h2>
-      <p class="lead rv" style="--i:1">Diagnóstico pelo WhatsApp, sem call e sem compromisso de contratar.</p>
+      <p class="lead rv" style="--i:1">Em poucas mensagens no WhatsApp, você mostra como a sua corretora atende hoje, e a gente aponta onde a comissão escapa. Sem call, sem reunião e sem compromisso de contratar.</p>
       <a class="cta rv" style="--i:2" href="https://wa.me/558598026295?text=Quero%20o%20diagn%C3%B3stico%20da%20minha%20corretora" target="_blank" rel="noopener">Quero o diagnóstico da minha corretora</a>
-      <p class="micro rv" style="--i:3">Dados de clientes ficam na conta da corretora, com consentimento registrado.</p>
+      <p class="micro ps rv" style="--i:3">P.S.: O Aruna OS não promete resultado de venda. A meta de cada corretora é escrita no primeiro dia e conferida junto com você em 60 dias.</p>
     </div>
   </div>
 </section>
@@ -414,6 +486,7 @@ footer { border-top: var(--rule-hair) solid var(--color-rule); padding-block: va
         <a href="/politica-de-privacidade/">política de privacidade</a>
       </nav>
       <div class="foot-legal">
+        <p>Dados de clientes ficam na conta da corretora, com consentimento registrado. <a href="/politica-de-privacidade/">Política de privacidade</a>.</p>
         <p>© <span id="ano" style="display:inline">2026</span> Agência Aruna</p>
         <p class="legal"><span>58.265.276 YANNA BARBARA PONTES DAMASCENO</span><span>CNPJ 58.265.276/0001-81</span><span>Fortaleza, CE, CEP 60743-250</span></p>
       </div>
