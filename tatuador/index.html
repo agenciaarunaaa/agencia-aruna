@@ -52,6 +52,9 @@ main{flex:1;display:flex;align-items:center;justify-content:center;padding:30px 
 .diag .it b{display:block;font-family:var(--display);font-size:18px;margin-bottom:4px}
 .diag .it p{color:var(--muted);font-size:15.5px}
 .diag .it small{display:block;color:var(--amber);font-size:12.5px;margin-bottom:6px}
+.lista3{list-style:none;display:grid;gap:12px;margin:8px 0 22px;padding:0}
+.lista3 li{position:relative;padding-left:34px;font-size:17px;line-height:1.4}
+.lista3 li::before{content:'\2713';position:absolute;left:0;top:1px;width:22px;height:22px;border-radius:7px;background:var(--grad);color:#1a0d08;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
 .diag-tit{font-family:var(--display);font-size:19px;font-weight:600;margin-bottom:12px}
 .meta3{background:linear-gradient(160deg,var(--void-2),var(--void-3));border:1px solid rgba(245,166,35,.4);border-radius:14px;padding:16px 18px;margin-bottom:26px}
 .meta3 span{display:block;color:var(--amber);text-transform:uppercase;letter-spacing:.12em;font-size:11.5px;font-family:var(--mono);margin-bottom:6px}
@@ -68,7 +71,6 @@ main{flex:1;display:flex;align-items:center;justify-content:center;padding:30px 
 .igbox .acoes .btn{margin:0}
 .btn.sec{background:transparent;color:var(--cream);border:1px solid rgba(244,239,232,.25);box-shadow:none}
 .btn.wa{background:#25D366;color:#06210f;box-shadow:0 10px 40px -12px rgba(37,211,102,.55)}
-footer .wrap{max-width:760px}
 @media (max-width:600px){.nums3{grid-template-columns:1fr !important}.campo{font-size:20px}}
 </style>
 <script>
@@ -84,11 +86,6 @@ fbq('init','805389752641637');fbq('track','PageView');
 </div>
 <div class="barra"><i id="progresso"></i></div>
 <main id="palco"></main>
-
-<footer>
-  <div class="wrap"><span>Agência Aruna · Fortaleza, CE</span><span>Resultados variam por cidade, estilo e perfil. Nenhum resultado é garantido.</span></div>
-  <p class="legal" style="width:100%;margin:16px 0 0;padding:0 20px;font-size:12px;line-height:1.5;opacity:.7;text-align:center">Agência Aruna · 58.265.276 YANNA BARBARA PONTES DAMASCENO · CNPJ 58.265.276/0001-81 · Fortaleza, CE · CEP 60743-250 · <a href="mailto:yanna@agenciaaruna.com" style="color:inherit">yanna@agenciaaruna.com</a></p>
-</footer>
 
 <script>
 var WA = '5585986187522';
@@ -107,14 +104,13 @@ var DORES = ['Chega mensagem e pouca vira sinal','Perguntam o preço e somem','C
 
 var TELAS = {
   inicio: {tipo:'info', kicker:'Para tatuador que já anunciou',
-    titulo:'Já pagou anúncio, chegou mensagem e quase ninguém pagou o sinal?',
-    sub:'Aqui o anúncio é medido pelo sinal pago, não pelo alcance. A gente gera a demanda e entra no seu processo comercial, conversa por conversa.',
-    extra:'<div class="diag">'+
-      '<div class="it"><b>Anúncio com o seu trabalho</b><p>Campanha e criativo para quem mora perto e já pensa em tatuar, com o posicionamento do seu Instagram junto.</p></div>'+
-      '<div class="it"><b>O Sórisca no seu WhatsApp</b><p>O sistema de IA da Aruna responde, organiza cada conversa e conduz até o sinal. A gente acompanha cada lead que chega.</p></div>'+
-      '<div class="it"><b>Placar toda semana</b><p>Quanto foi investido no anúncio e quantos sinais pagos vieram dele.</p></div>'+
-      '</div><p class="muted" style="font-size:15px;margin-bottom:24px">São 12 perguntas rápidas. Sem fidelidade. Preencher não garante vaga: atendemos poucos tatuadores por vez, e quem ainda não estiver no momento recebe, na hora, orientações com base nas respostas.</p>',
-    botao:'Começar', prox:'trafego'},
+    titulo:'Do anúncio ao sinal pago na sua conta, a Aruna cuida do caminho inteiro.',
+    extra:'<ul class="lista3">'+
+      '<li>Anúncio com o seu trabalho, para quem mora perto</li>'+
+      '<li>Sórisca, sistema de IA da Aruna, atendendo seu WhatsApp até o sinal</li>'+
+      '<li>Placar toda semana com os sinais pagos que vieram do anúncio</li>'+
+      '</ul><p class="muted" style="font-size:14px;margin-bottom:22px">12 perguntas · Sem fidelidade</p>',
+    botao:'Ver se meu perfil encaixa', prox:'trafego'},
 
   trafego: {tipo:'uma', chave:'trafego', kicker:'1 de 12', titulo:'Você já colocou dinheiro em anúncio?',
     sub:'Conta como foi até aqui. Muda o que a gente olha primeiro.',
